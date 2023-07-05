@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Home"
+        android:icon="@drawable/btm_baseline_home_24"
+        android:id="@+id/btm_home"/>
+
+    <item android:title="All Products"
+        android:icon="@drawable/btm_baseline_grid_view_24"
+        android:id="@+id/btm_allproduct"/>
+
+    <item android:title="Fetch Query"
+        android:icon="@drawable/btm_baseline_query_stats_24"
+        android:id="@+id/btm_query"/>
+
+    <item android:title="Profile"
+        android:icon="@drawable/btm_baseline_account_circle_24"
+        android:id="@+id/btm_profile"/>
+
+    <item android:title="Settings"
+        android:icon="@drawable/btm_baseline_settings_suggest_24"
+        android:id="@+id/btm_settings"/>
+
+</menu>

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "26111427115",
+    "project_id": "listerlighting-21d3c",
+    "storage_bucket": "listerlighting-21d3c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:26111427115:android:016e2500f385ee8389e06e",
+        "android_client_info": {
+          "package_name": "com.listerled.listerlighting"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "26111427115-e4fvuv3hdjlf0vctmoa1d3bvv2u005l6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.listerled.listerlighting",
+            "certificate_hash": "ea6ad55b637443a7fccf29dd092b047880c14531"
+          }
+        },
+        {
+          "client_id": "26111427115-adobktf7bkoeku7rrutfd4460pbti9aq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQllYAzAk0N8lruaIohhhw4uVtI8cYX1Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "26111427115-adobktf7bkoeku7rrutfd4460pbti9aq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

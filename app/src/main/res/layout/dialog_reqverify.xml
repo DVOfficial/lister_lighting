@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/primary">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:padding="8dp"
+        style="@style/TextAppearance.AppCompat.Title"
+        android:fontFamily="sans-serif-medium"
+        android:text="Registration Title"
+        android:textColor="@color/secondary" />
+
+<!--    <com.google.android.material.textfield.TextInputLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:textColor="#000"-->
+<!--        app:boxBackgroundColor="#fff"-->
+<!--        android:background="@drawable/edittext_rounded_corners">-->
+<!--        <com.google.android.material.textfield.TextInputEditText-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            style="@style/TextAppearance.AppCompat.Subhead"-->
+<!--            android:textAllCaps="true"-->
+<!--            android:layout_gravity="center_vertical"-->
+<!--            android:gravity="center_vertical"-->
+<!--            android:inputType="textMultiLine"-->
+<!--            android:padding="16dp"-->
+<!--            android:id="@+id/edt_Answer" />-->
+<!--    </com.google.android.material.textfield.TextInputLayout>-->
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:id="@+id/tv_FormName"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:visibility="visible"
+        app:boxCollapsedPaddingTop="4dp"
+        app:hintTextColor="@color/primary"
+        app:boxBackgroundColor="@color/secondary"
+        android:background="@drawable/edittext_rounded_corners">
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/edt_FormName"
+            android:hint="Which form you want to fill"
+            android:textColor="@color/primary"
+            android:background="@color/secondary"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp" />
+    </com.google.android.material.textfield.TextInputLayout>    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+       android:id="@+id/tv_FormRemarks"
+        app:boxCollapsedPaddingTop="4dp"
+        app:hintTextColor="@color/primary"
+    android:hint="As question"
+        app:boxBackgroundColor="@color/secondary"
+        android:background="@drawable/edittext_rounded_corners">
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/edt_FormRemarks"
+            android:textColor="@color/primary"
+            android:background="@color/secondary"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <Button
+        android:id="@+id/buttonCancel"
+        android:textColor="@color/secondary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_margin="8dp"
+        android:textSize="20sp"
+        android:fontFamily="sans-serif-medium"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:text="Do it later" />
+    <Button
+        android:id="@+id/buttonSubmit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:textColor="@color/primary"
+        style="@style/TextAppearance.AppCompat.Title"
+        android:textSize="20sp"
+        android:text="SubmitForm_Btn"
+        android:backgroundTint="@color/secondary"
+        android:layout_weight="1" />
+
+</LinearLayout>
+
+</LinearLayout>
