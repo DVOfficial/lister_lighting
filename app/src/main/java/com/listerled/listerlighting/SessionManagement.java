@@ -16,7 +16,7 @@ public class SessionManagement {
         editor = sharedPreferences.edit();
     }
 
-    public void saveSession(class_User user){
+    public void saveSession(Class_User user){
         //save session of user whenever user is logged in
         int id = user.getId();
         String email=user.getName();

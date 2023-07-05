@@ -4,7 +4,7 @@ import androidx.annotation.Keep;
 
 @Keep
 
-public class class_User {
+public class Class_User {
     public int id;
     public String datetime;
     public String name;
@@ -17,13 +17,13 @@ public class class_User {
     private String status;
     private String search;
 
-    public class_User(int id, String name) {
+    public Class_User(int id, String name) {
         this.id = id;
         this.name = name;
 
     }
 
-    public class_User(String datetime, String name, String phoneno, String emailid, String token, String userid, String imageURL, String status, String search) {
+    public Class_User(String datetime, String name, String phoneno, String emailid, String token, String userid, String imageURL, String status, String search) {
 
         this.datetime = datetime;
         this.name = name;
@@ -36,7 +36,7 @@ public class class_User {
         this.search = search;
     }
 
-    public class_User(int id, String datetime, String name, String phoneno, String emailid, String token, String password, String userid) {
+    public Class_User(int id, String datetime, String name, String phoneno, String emailid, String token, String password, String userid) {
         this.id = id;
         this.datetime = datetime;
         this.name = name;
@@ -47,7 +47,7 @@ public class class_User {
         this.userid = userid;
     }
 
-    public class_User(String datetime, String name, String phoneno, String emailid, String token, String password, String userid) {
+    public Class_User(String datetime, String name, String phoneno, String emailid, String token, String password, String userid) {
         this.datetime = datetime;
         this.name = name;
         this.phoneno = phoneno;
@@ -57,10 +57,10 @@ public class class_User {
         this.userid = userid;
     }
 
-    public class_User() {
+    public Class_User() {
     }
 
-    public class_User(String datetime, String name, String phoneno, String emailid, String token, String password) {
+    public Class_User(String datetime, String name, String phoneno, String emailid, String token, String password) {
         this.datetime = datetime;
         this.name = name;
         this.phoneno = phoneno;

@@ -24,7 +24,7 @@ import java.util.Calendar;
 
 public class LoginActivity extends AppCompatActivity {
 
-    class_User userRegister;
+    Class_User userRegister;
     Calendar calenderCC=Calendar.getInstance();
     SimpleDateFormat simpleDateFormatCC= new SimpleDateFormat("dd-MMM-yyyy hh:mm:ss a");
     final String udateTimeCC=simpleDateFormatCC.format(calenderCC.getTime());
@@ -84,7 +84,7 @@ public class LoginActivity extends AppCompatActivity {
                                         progressBar.setVisibility(View.GONE);
                                         Intent intent =new Intent(LoginActivity.this,Home.class);
                                         startActivity(intent);
-                                        class_User user1 = new class_User(12,"DevDV");
+                                        Class_User user1 = new Class_User(12,"DevDV");
                                         SessionManagement sessionManagement = new SessionManagement(LoginActivity.this);
                                         sessionManagement.saveSession(user1);
 

@@ -4,62 +4,81 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg"
     tools:context=".Home">
 
 
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:id="@+id/cv_govt123"
-        android:backgroundTint="@color/grey"
-        app:cardUseCompatPadding="true">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="4dp"
-            android:id="@+id/ll_cv"
-            android:layout_gravity="center_horizontal"
-            android:orientation="horizontal">
-            <TextView
-                android:id="@+id/loginstatus"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="16dp"
-                android:padding="4dp"
-                android:gravity="center"
-                android:textSize="24sp"
-                android:text="ALL Products"
-                android:textColor="@color/primary"/>
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
+<!--    <androidx.cardview.widget.CardView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:id="@+id/cv_govt123"-->
+<!--        android:backgroundTint="@color/grey"-->
+<!--        app:cardUseCompatPadding="true">-->
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:padding="4dp"-->
+<!--            android:id="@+id/ll_cv"-->
+<!--            android:layout_gravity="center_horizontal"-->
+<!--            android:orientation="horizontal">-->
+<!--            <TextView-->
+<!--                android:id="@+id/loginstatus"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:layout_margin="16dp"-->
+<!--                android:padding="4dp"-->
+<!--                android:gravity="center"-->
+<!--                android:textSize="24sp"-->
+<!--                android:text="ALL Products"-->
+<!--                android:textColor="@color/primary"/>-->
+<!--        </LinearLayout>-->
+<!--    </androidx.cardview.widget.CardView>-->
     <androidx.appcompat.widget.SearchView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:queryHint="Search Job"
         app:iconifiedByDefault="false"
-        android:layout_below="@+id/cv_govt123"
         android:id="@+id/searchView"/>
-    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+
+    <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="150dp"
-        android:id="@+id/swipeRV">
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/userQuery_rv"/>
-    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/logoutButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Logout"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"/>
+        android:layout_margin="8dp"
+        android:layout_below="@id/searchView"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="8dip"
+        android:cacheColorHint="@android:color/transparent"
+        android:drawSelectorOnTop="true"
+        android:id="@+id/listview"/>
+<!--    <androidx.recyclerview.widget.RecyclerView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_margin="8dp"-->
+<!--        android:layout_below="@id/searchView"-->
+<!--        android:divider="@android:color/transparent"-->
+<!--        android:dividerHeight="8dip"-->
+<!--        android:cacheColorHint="@android:color/transparent"-->
+<!--        android:drawSelectorOnTop="true"-->
+<!--        android:id="@+id/userRegisterQuery_rv"/>-->
+
+<!--    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_marginTop="150dp"-->
+<!--        android:id="@+id/swipeRV">-->
+
+<!--    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>-->
+<!--    <androidx.appcompat.widget.AppCompatButton-->
+<!--        android:id="@+id/logoutButton"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Logout"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/textView"/>-->
     <include layout="@layout/btm_nav_view"/>
 
 
