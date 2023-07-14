@@ -7,9 +7,38 @@
     android:background="@drawable/bg"
     tools:context=".Home">
 
+    <com.denzcoskun.imageslider.ImageSlider
+        android:id="@+id/image_slider_header"
+        android:layout_width="wrap_content"
+        android:layout_height="250dp"
+        app:iss_auto_cycle="true"
+        app:iss_period="1000"
+        app:iss_delay="1000"
+        app:iss_text_align="CENTER"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Featured Products"
+        android:textSize="20sp"
+        android:layout_below="@id/image_slider_header"
+        android:id="@+id/title_hotselling"
+        android:textStyle="bold"/>
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="8dip"
+            android:layout_below="@id/title_hotselling"
+            android:cacheColorHint="@android:color/transparent"
+            android:drawSelectorOnTop="true"
+            android:id="@+id/featured_listview"/>
 
 
-<!--    <androidx.cardview.widget.CardView-->
+
+    <!--    <androidx.cardview.widget.CardView-->
 <!--        android:layout_width="match_parent"-->
 <!--        android:layout_height="50dp"-->
 <!--        android:id="@+id/cv_govt123"-->

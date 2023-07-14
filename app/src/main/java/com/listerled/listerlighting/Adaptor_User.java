@@ -40,7 +40,7 @@ public class Adaptor_User extends RecyclerView.Adapter<Adaptor_User.MyViewHolder
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View rootview = LayoutInflater.from(context).inflate(R.layout.list_item1, parent, false);
+        View rootview = LayoutInflater.from(context).inflate(R.layout.list_lister_rectangular, parent, false);
         return new  MyViewHolder(rootview);
     }
 

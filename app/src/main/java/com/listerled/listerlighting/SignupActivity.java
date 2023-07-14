@@ -87,7 +87,7 @@ public class SignupActivity extends AppCompatActivity {
                                         FirebaseUser user=firebaseAuth.getCurrentUser();
                                         Toast.makeText(SignupActivity.this, "Registration Successful!", Toast.LENGTH_SHORT).show();
                                         progressBar.setVisibility(View.GONE);
-                                        Intent intent =new Intent(SignupActivity.this,Home.class);
+                                        Intent intent =new Intent(SignupActivity.this,Home1.class);
                                         startActivity(intent);
 
                                         DatabaseReference refAdmin = FirebaseDatabase.getInstance().getReference().child("Admin").child("UserRegister");
@@ -140,7 +140,7 @@ public class SignupActivity extends AppCompatActivity {
         }
     }
     private void moveToMainActivity() {
-        Intent intent = new Intent(SignupActivity.this, Home.class);
+        Intent intent = new Intent(SignupActivity.this, Home1.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }

@@ -4,10 +4,10 @@
 
     <item android:state_pressed="false" android:state_focused="true">
         <shape>
-            <solid android:color="@color/purple"/>
+            <solid android:color="@color/secondary"/>
             <stroke
                 android:width="2.3dp"
-                android:color="@color/secondary" />
+                android:color="@color/primary" />
             <corners
                 android:radius="10dp" />
         </shape>
@@ -37,14 +37,14 @@
     <item android:state_pressed="false" android:state_focused="false">
         <shape>
             <gradient
-                android:startColor="@color/purple"
+                android:startColor="@color/primary"
                 android:centerColor="@color/secondary"
-                android:endColor="@color/secondary"
+                android:endColor="@color/primary"
                 android:angle="270"
                 />
             <stroke
                 android:width="0.7dp"
-                android:color="@color/secondary" />
+                android:color="@color/primary" />
             <corners
                 android:radius="10dp" />
         </shape>

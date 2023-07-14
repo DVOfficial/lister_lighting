@@ -1,9 +1,906 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProductDetails">
+    tools:context=".Product_Details">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:id="@+id/ll_title"
+        android:background="@color/primary"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:textSize="18sp"
+            android:id="@+id/tv_title"/>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:id="@+id/iv_productImage"/>
+    </LinearLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="72dp"
+        android:background="@color/primary"
+        android:layout_below="@id/ll_title">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="16dp"
+                app:cardCornerRadius="30dp"
+                app:cardElevation="20dp"
+                android:background="@drawable/custom_edittext">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_gravity="center_horizontal"
+                    android:padding="24dp">
+
+<!--first line category- modelno-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"
+                            android:id="@+id/tv_category"/>
+                        <View
+                            android:layout_width="10dp"
+                            android:layout_height="1dp"
+                            android:layout_marginStart="16dp"
+                            android:layout_gravity="center"
+                            android:layout_marginEnd="16dp"
+                            android:background="@color/primary" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"
+                            android:id="@+id/tv_product_Code"/>
+                    </LinearLayout>
+
+<!--                    //second line category- title - series-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"
+                            android:textSize="24sp"
+                            android:gravity="start"
+                            android:paddingTop="8dp"
+                            android:paddingBottom="8dp"
+                            android:textStyle="bold"
+                            android:layout_weight="1"
+                            android:textColor="@color/primary"
+                            android:id="@+id/tv_model"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="4"
+                            android:layout_gravity="end"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:visibility="gone"
+                                android:gravity="center"
+                                android:textStyle="bold"
+                                android:text="Series"
+                                android:textColor="@color/primary"
+                                android:id="@+id/tvt_series"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"
+                            android:gravity="center"
+                            android:id="@+id/tv_series"/>
+                        </LinearLayout>
+
+                    </LinearLayout>
+<!--                    //third line - watt - shape-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:baselineAligned="false"
+                        android:layout_marginBottom="8dp"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"
+                            android:textStyle="bold"
+                            android:gravity="center"
+                            android:text="Watt"
+                            android:textColor="@color/primary"
+                            android:id="@+id/tvt_watt"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"
+                            android:gravity="center"
+                            android:id="@+id/tv_watt"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="32dp"
+                            android:layout_gravity="center"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:visibility="gone"
+                                android:gravity="center"
+                                android:textStyle="bold"
+                                android:text="Shape"
+                                android:textColor="@color/primary"
+                                android:id="@+id/tvt_shape"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:visibility="gone"
+                                android:gravity="center"
+                                android:id="@+id/tv_shape"/>
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                    <!--                    color-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"
+                            android:text="Color"
+                            android:textStyle="bold"
+                            android:textColor="@color/primary"
+
+                            android:id="@+id/tvt_colour"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"
+                            android:id="@+id/tv_colour"/>
+                    </LinearLayout>
+
+<!--                    //forth line - powerfactor - Withstand Voltage- surge protection -lumen
+                                        output voltage - output current - THD-->
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="24dp"
+                        android:background="@drawable/border"
+                        android:padding="8dp"
+                        android:visibility="gone"
+                        android:baselineAligned="false"
+                        android:orientation="horizontal">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:visibility="gone"
+
+                            android:id="@+id/ll_power_factor"
+                            android:layout_gravity="center"
+                            android:layout_marginEnd="4dp"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:visibility="gone"
+                                android:text="Power Factor"
+                                android:textStyle="bold"
+                                android:gravity="center"
+                                android:textColor="@color/primary"
+                                android:id="@+id/tvt_power_factor"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:visibility="gone"
+                                android:gravity="center"
+                                android:id="@+id/tv_power_factor"/>
+                        </LinearLayout>
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="fill_parent"
+                            android:id="@+id/v_power_factor"
+                            android:visibility="gone"
+                            android:background="@color/primary" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:id="@+id/ll_withstand_voltage"
+                            android:layout_gravity="center"
+                            android:layout_marginEnd="4dp"
+                            android:layout_marginStart="4dp"
+                            android:visibility="gone"
+
+
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:visibility="gone"
+                                android:gravity="center"
+                                android:textStyle="bold"
+                                android:textColor="@color/primary"
+
+                                android:text="Withstand Voltage"
+                                android:id="@+id/tvt_withstand_voltage"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:visibility="gone"
+                                android:gravity="center"
+                                android:id="@+id/tv_withstand_voltage"/>
+                        </LinearLayout>
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="fill_parent"
+                            android:id="@+id/v_withstand_voltage"
+                            android:visibility="gone"
+
+                            android:background="@color/primary" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:visibility="gone"
+
+                            android:id="@+id/ll_surge_protection"
+                            android:layout_gravity="center"
+                            android:layout_marginEnd="4dp"
+                            android:layout_marginStart="4dp"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:visibility="gone"
+                                android:gravity="center"
+                                android:textStyle="bold"
+                                android:textColor="@color/primary"
+
+                                android:text="Surge Protection"
+                                android:id="@+id/tvt_surge_protection"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:visibility="gone"
+                                android:gravity="center"
+                                android:id="@+id/tv_surge_protection"/>
+                        </LinearLayout>
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="fill_parent"
+                            android:id="@+id/v_surge_protection"
+                            android:visibility="gone"
+
+                            android:background="@color/primary" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:id="@+id/ll_lumen"
+                            android:visibility="gone"
+
+                            android:layout_gravity="center"
+                            android:layout_marginStart="4dp"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:visibility="gone"
+                                android:text="Lumen"
+                                android:textStyle="bold"
+                                android:gravity="center"
+                                android:textColor="@color/primary"
+
+                                android:id="@+id/tvt_lumen"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:visibility="gone"
+                                android:gravity="center"
+                                android:id="@+id/tv_lumen"/>
+                        </LinearLayout>
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="fill_parent"
+                            android:id="@+id/v_lumen"
+                            android:visibility="gone"
+
+                            android:background="@color/primary" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:id="@+id/ll_output_voltage"
+                            android:visibility="gone"
+
+                            android:layout_gravity="center"
+                            android:layout_marginStart="4dp"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:visibility="gone"
+                                android:text="Output Voltage"
+                                android:textStyle="bold"
+                                android:gravity="center"
+                                android:textColor="@color/primary"
+
+                                android:id="@+id/tvt_output_voltage"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:visibility="gone"
+                                android:gravity="center"
+                                android:id="@+id/tv_output_voltage"/>
+                        </LinearLayout>
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="fill_parent"
+                            android:visibility="gone"
+                            android:id="@+id/v_output_voltage"
+                            android:background="@color/primary" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_gravity="center"
+                            android:visibility="gone"
+                            android:id="@+id/ll_output_current"
+                            android:layout_marginStart="4dp"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:visibility="gone"
+                                android:text="Output Current"
+                                android:textStyle="bold"
+                                android:gravity="center"
+                                android:textColor="@color/primary"
+
+                                android:id="@+id/tvt_output_current"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:visibility="gone"
+                                android:gravity="center"
+                                android:id="@+id/tv_output_current"/>
+                        </LinearLayout>
+                        <View
+                            android:layout_width="1dp"
+                            android:visibility="gone"
+                            android:layout_height="fill_parent"
+                            android:id="@+id/v_output_current"
+                            android:background="@color/primary" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:visibility="gone"
+                            android:id="@+id/ll_thd"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="4dp"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:visibility="gone"
+                                android:text="THD"
+                                android:textStyle="bold"
+                                android:gravity="center"
+                                android:textColor="@color/primary"
+
+                                android:id="@+id/tvt_thd"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:visibility="gone"
+                                android:gravity="center"
+                                android:id="@+id/tv_thd"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+<!--                    //fifth line - no of led - lumen per led- lumed per meter-  led package-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="24dp"
+                    android:background="@drawable/border"
+                    android:padding="8dp"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:id="@+id/ll_no_of_led"
+                    android:visibility="gone"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="4dp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"
+                        android:text="No of led"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:textColor="@color/primary"
+                        android:id="@+id/tvt_no_of_led"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"
+                        android:id="@+id/tv_no_of_led"/>
+                </LinearLayout>
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="fill_parent"
+                        android:visibility="gone"
+                        android:id="@+id/v_no_of_led"
+                        android:background="@color/primary" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:visibility="gone"
+                        android:id="@+id/ll_lumen_per_led"
+                        android:layout_gravity="center"
+                        android:layout_marginEnd="4dp"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"
+                            android:text="Lumen Per LED"
+                            android:textStyle="bold"
+                            android:gravity="center"
+                            android:textColor="@color/primary"
+
+                            android:id="@+id/tvt_lumen_per_led"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"
+                        android:id="@+id/tv_lumen_per_led"/>
+                    </LinearLayout>
+                    <View
+                        android:layout_width="1dp"
+                        android:visibility="gone"
+                        android:id="@+id/v_lumen_per_led"
+                        android:layout_height="fill_parent"
+                        android:background="@color/primary" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:visibility="gone"
+                        android:id="@+id/ll_lumen_per_mtr"
+                        android:layout_gravity="center"
+                        android:layout_marginEnd="4dp"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"
+                            android:text="Lumen Per meter"
+                            android:textStyle="bold"
+                            android:gravity="center"
+                            android:textColor="@color/primary"
+
+                            android:id="@+id/tvt_lumen_per_mtr"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"
+                            android:id="@+id/tv_lumen_per_mtr"/>
+                    </LinearLayout>
+
+
+                    <View
+                        android:layout_width="1dp"
+                        android:id="@+id/v_lumen_per_mtr"
+                        android:visibility="gone"
+                        android:layout_height="fill_parent"
+                        android:background="@color/primary" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:id="@+id/ll_led_package"
+                        android:visibility="gone"
+                        android:layout_gravity="center"
+                        android:layout_marginEnd="4dp"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"
+                            android:text="Led Package"
+                            android:textStyle="bold"
+                            android:gravity="center"
+                            android:textColor="@color/primary"
+                            android:id="@+id/tvt_led_package"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"
+                        android:id="@+id/tv_led_package"/>
+                </LinearLayout>
+
+                </LinearLayout>
+
+<!--                    //sixth line - size - cutoutsize- housing type
+                                        finish product size - finish product weight-->
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false"
+                    android:padding="8dp"
+                    android:layout_marginBottom="24dp"
+                    android:background="@drawable/border"
+
+                    android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:visibility="gone"
+                    android:id="@+id/ll_size"
+                    android:layout_gravity="center"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"
+                        android:gravity="center"
+                        android:text="Size"
+                        android:textStyle="bold"
+                        android:textColor="@color/primary"
+                        android:id="@+id/tvt_size"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:gravity="center"
+                android:id="@+id/tv_size"/>
+                </LinearLayout>
+                    <View
+                        android:visibility="gone"
+                        android:layout_width="1dp"
+                        android:layout_height="fill_parent"
+                        android:id="@+id/v_size"
+                        android:background="@color/primary" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:id="@+id/ll_cut_out_size"
+                        android:visibility="gone"
+                        android:layout_gravity="center"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"
+                            android:gravity="center"
+                            android:text="Cut Out Size"
+                            android:textStyle="bold"
+                            android:textColor="@color/primary"
+
+                            android:id="@+id/tvt_cut_out_size"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"
+                            android:gravity="center"
+                            android:id="@+id/tv_cut_out_size"/>
+                    </LinearLayout>
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:visibility="gone"-->
+<!--                android:id="@+id/tv_cut_out_size"/>-->
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="fill_parent"
+                        android:id="@+id/v_cut_out_size"
+                        android:visibility="gone"
+                        android:background="@color/primary" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:id="@+id/ll_finish_product_size"
+                        android:visibility="gone"
+                        android:layout_gravity="center"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"
+                            android:textStyle="bold"
+                            android:gravity="center"
+                            android:textColor="@color/primary"
+
+                            android:text="Finish Product Size"
+                            android:id="@+id/tvt_finish_product_size"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"
+                            android:gravity="center"
+                            android:id="@+id/tv_finish_product_size"/>
+                    </LinearLayout>
+                    <View
+                        android:layout_width="1dp"
+                        android:visibility="gone"
+                        android:layout_height="fill_parent"
+                        android:id="@+id/v_finish_product_size"
+                        android:background="@color/primary" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:visibility="gone"
+                        android:id="@+id/ll_finish_product_weight"
+                        android:layout_gravity="center"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"
+                            android:textStyle="bold"
+                            android:gravity="center"
+                            android:textColor="@color/primary"
+
+                            android:text="Finish Product Weight"
+                            android:id="@+id/tvt_finish_product_weight"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"
+                            android:gravity="center"
+                            android:id="@+id/tv_finish_product_weight"/>
+                    </LinearLayout>
+
+
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="fill_parent"
+                        android:visibility="gone"
+                        android:id="@+id/v_finish_product_weight"
+                        android:background="@color/primary" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:visibility="gone"
+                        android:id="@+id/ll_housing_type"
+                        android:layout_gravity="center"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"
+                            android:textStyle="bold"
+                            android:gravity="center"
+                            android:textColor="@color/primary"
+
+                            android:text="Housing_type"
+                            android:id="@+id/tvt_housing_type"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"
+                            android:gravity="center"
+                            android:id="@+id/tv_housing_type"/>
+                    </LinearLayout>
+<!--                    <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:visibility="gone"-->
+<!--                android:id="@+id/tv_housing_type"/>-->
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false"
+                    android:padding="8dp"
+                    android:layout_marginBottom="24dp"
+                    android:background="@drawable/border"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:visibility="gone"
+                        android:id="@+id/ll_ip_rating"
+                        android:layout_gravity="center"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"
+                            android:textStyle="bold"
+                            android:gravity="center"
+                            android:textColor="@color/primary"
+
+                            android:text="IP Rating"
+                            android:id="@+id/tvt_ip_rating"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"
+                            android:gravity="center"
+                            android:id="@+id/tv_ip_rating"/>
+                    </LinearLayout>
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="fill_parent"
+                        android:id="@+id/v_ip_rating"
+                        android:visibility="gone"
+                        android:background="@color/primary" />
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:visibility="gone"
+                        android:id="@+id/ll_dia"
+                        android:layout_gravity="center"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"
+                            android:textStyle="bold"
+                            android:gravity="center"
+                            android:textColor="@color/primary"
+
+                            android:text="Dia"
+                            android:id="@+id/tvt_dia"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"
+                            android:gravity="center"
+                            android:id="@+id/tv_dia"/>
+                    </LinearLayout>
+                    <View
+                        android:layout_width="1dp"
+                        android:id="@+id/v_dia"
+                        android:visibility="gone"
+                        android:layout_height="fill_parent"
+                        android:background="@color/primary" />
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:id="@+id/ll_total_length"
+                        android:visibility="gone"
+                        android:layout_gravity="center"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"
+                            android:textStyle="bold"
+                            android:gravity="center"
+                            android:textColor="@color/primary"
+                            android:text="Total Length"
+                            android:id="@+id/tvt_total_length"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"
+                            android:gravity="center"
+                            android:id="@+id/tv_total_length"/>
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:visibility="gone"
+                        android:layout_marginBottom="24dp"
+                        android:id="@+id/ll_product_specification"
+                        android:layout_gravity="center"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"
+                            android:textStyle="bold"
+                            android:gravity="center"
+                            android:textColor="@color/primary"
+                            android:text="Product Specification"
+                            android:id="@+id/tvt_product_specification"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"
+                            android:gravity="center"
+                            android:id="@+id/tv_product_specification"/>
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+    <include layout="@layout/btm_nav_view"/>
+
+
+
+
+</RelativeLayout>

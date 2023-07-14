@@ -5,51 +5,57 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".FetchProductDataActivity">
-    <androidx.cardview.widget.CardView
+
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:id="@+id/cv_govt123"
-        android:backgroundTint="@color/grey"
-        app:cardUseCompatPadding="true">
-        <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:id="@+id/ll_title"
+        android:background="@color/primary"
+        android:orientation="vertical">
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="4dp"
-            android:id="@+id/ll_cv"
-            android:layout_gravity="center_horizontal"
-            android:orientation="horizontal">
-            <TextView
-                android:id="@+id/loginstatus"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:layout_margin="16dp"
-                android:padding="4dp"
-                android:gravity="start"
-                android:textSize="24sp"
-                android:text="ALL Products"
-                android:textColor="@color/primary"/>
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
+            android:textColor="@color/white"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:textSize="18sp"
+            android:text="Fetch Product List"
+            android:id="@+id/tv_title"/>
+    </LinearLayout>
     <androidx.appcompat.widget.SearchView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/edittext_rounded_corners"
+        android:background="@color/white"
         app:queryHint="Search Job"
         app:iconifiedByDefault="false"
         android:layout_margin="8dp"
+        android:layout_below="@id/ll_title"
         android:id="@+id/searchView"/>
-    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+<!--    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_marginTop="150dp"-->
+<!--        android:id="@+id/swipeRV">-->
+<!--        <androidx.recyclerview.widget.RecyclerView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:id="@+id/userQuery_rv"/>-->
+<!--    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>-->
+    <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="150dp"
-        android:id="@+id/swipeRV">
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/userQuery_rv"/>
-    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-
+        android:layout_margin="8dp"
+        android:layout_below="@id/searchView"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="8dip"
+        android:cacheColorHint="@android:color/transparent"
+        android:drawSelectorOnTop="true"
+        android:id="@+id/listview"/>
     <include layout="@layout/btm_nav_view"/>
 
     <!--    <com.google.android.material.bottomnavigation.BottomNavigationView-->

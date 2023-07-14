@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Lister Lighting</string>
+    <string name="smps_drivers"><![CDATA[SMPS & Drivers]]></string>
 </resources>

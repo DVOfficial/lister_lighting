@@ -16,19 +16,28 @@
         app:iconifiedByDefault="false"
         android:layout_margin="8dp"
         android:id="@+id/searchView"/>
-    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+<!--    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_below="@id/searchView"-->
+<!--        android:layout_margin="8dp"-->
+<!--        android:id="@+id/swipeRV">-->
+<!--        <androidx.recyclerview.widget.RecyclerView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_below="@id/searchView"-->
+<!--            android:id="@+id/userQuery_rv"/>-->
+<!--    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>-->
+    <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/searchView"
         android:layout_margin="8dp"
-        android:id="@+id/swipeRV">
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@id/searchView"
-            android:id="@+id/userQuery_rv"/>
-    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-
+        android:layout_below="@id/searchView"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="8dip"
+        android:cacheColorHint="@android:color/transparent"
+        android:drawSelectorOnTop="true"
+        android:id="@+id/listview1"/>
     <include layout="@layout/btm_nav_view"/>
 
     <include layout="@layout/btm_nav_view"/>

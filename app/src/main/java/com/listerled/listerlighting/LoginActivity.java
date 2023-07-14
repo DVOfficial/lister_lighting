@@ -82,7 +82,7 @@ public class LoginActivity extends AppCompatActivity {
                                         FirebaseUser user=mAuth.getCurrentUser();
                                         Toast.makeText(LoginActivity.this, "Login Successful!", Toast.LENGTH_SHORT).show();
                                         progressBar.setVisibility(View.GONE);
-                                        Intent intent =new Intent(LoginActivity.this,Home.class);
+                                        Intent intent =new Intent(LoginActivity.this,Home1.class);
                                         startActivity(intent);
                                         Class_User user1 = new Class_User(12,"DevDV");
                                         SessionManagement sessionManagement = new SessionManagement(LoginActivity.this);
@@ -120,7 +120,7 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
     private void moveToMainActivity() {
-        Intent intent = new Intent(LoginActivity.this, Home.class);
+        Intent intent = new Intent(LoginActivity.this, Home1.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
         finish();
