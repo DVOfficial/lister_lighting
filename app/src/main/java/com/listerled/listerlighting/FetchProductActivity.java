@@ -3,6 +3,7 @@ package com.listerled.listerlighting;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
@@ -11,16 +12,10 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.ListAdapter;
-import android.widget.ListView;
-import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
-import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
-import com.android.volley.RequestQueue;
 import com.android.volley.Response;
-import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
@@ -34,22 +29,22 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
-public class FetchProductDataActivity extends AppCompatActivity {
+public class FetchProductActivity extends AppCompatActivity {
 
-    RecyclerView userRegisterQuery_rv;
-    ListView listview;
-    ListAdapter adapter;
+    RecyclerView rv_FetchProduct;
+
+    Adaptor_FetchData adaptor_fetchdata;
     ProgressDialog dialogEng;
 
     BottomNavigationView bottom_Navigation;
-
+    String URLOld="https://script.google.com/macros/s/AKfycbzZr-qh-rRn-b1im1JPFkiD91RH_FDaWWOH_Ibn6fSgcBLxTm3d_ICt0SbOjaRG0b0q/exec";
+    private final String URLFetchData ="https://script.google.com/macros/s/AKfycbznBNmLV4H0A_ARDjjOYkaefeF3JTiAWjFVIU0dNuZavYS3sdBAhDTkNsal4Ep0tPQ/exec";
     //    RecyclerView latJobs_rv;
-    Adaptor_User laJobs_Adaptor,registerAdaptorGovtHi;
+    Adaptor_FetchData laJobs_Adaptor,registerAdaptorGovtHi;
 
-    List<Class_User> list_latJobs;
+    List<Class_ListerCounter> list_FetchData;
     SwipeRefreshLayout swipeRefreshLayout;
 
     FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
@@ -66,10 +61,11 @@ public class FetchProductDataActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_fetchproductdata);
+        setContentView(R.layout.activity_fetchproduct);
 
-//        userRegisterQuery_rv=findViewById(R.id.userRegisterQuery_rv);
-        listview=findViewById(R.id.listview);
+        rv_FetchProduct =findViewById(R.id.rv_FetchProduct);
+        searchView=findViewById(R.id.searchView);
+//        listview=findViewById(R.id.listview);
 //
 //        ActivityCompat.requestPermissions(Register_Activity.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
 //        ActivityCompat.requestPermissions(Register_Activity.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 1);
@@ -88,18 +84,18 @@ public class FetchProductDataActivity extends AppCompatActivity {
 //        latJobs_rv.setLayoutManager(linearLayoutManager);
 
 
-        list_latJobs = new ArrayList<>();
+        list_FetchData = new ArrayList<>();
 
 
-//        userRegisterQuery_rv.setLayoutManager(new LinearLayoutManager(Home.this));
+        rv_FetchProduct.setLayoutManager(new LinearLayoutManager(FetchProductActivity.this));
 
 //        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
 //        linearLayoutManager.setReverseLayout(true);
 //        linearLayoutManager.setStackFromEnd(true);
 //        userRegisterQuery_rv.setLayoutManager(linearLayoutManager);
 
-//        laJobs_Adaptor = new Adaptor_User(this, list_latJobs);
-//        userRegisterQuery_rv.setAdapter(laJobs_Adaptor);
+        laJobs_Adaptor = new Adaptor_FetchData(this, list_FetchData);
+        rv_FetchProduct.setAdapter(laJobs_Adaptor);
 
         if (searchView != null) {
             searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -118,7 +114,8 @@ public class FetchProductDataActivity extends AppCompatActivity {
         if (InternetConnection.checkConnection(getApplicationContext())) {
 //            new GetAdminDataTaskEng().execute(activity);
 
-            getData();
+//            getData();
+            getUpdatedData();
         } else {
             Toast.makeText(this,
                     "Internet Connection Not Available", Toast.LENGTH_SHORT).show();
@@ -190,162 +187,271 @@ public class FetchProductDataActivity extends AppCompatActivity {
 ////                } catch (Exception e) {
 //                    //whatsapp app not install
 //
-////                }
+////                }a
 //            }
 //
 //        });
 
 
-        bottom_Navigation=findViewById(R.id.bottom_Navigation);
-        bottom_Navigation.setSelectedItemId(R.id.btm_settings);
+
+        bottom_Navigation = findViewById(R.id.bottom_Navigation);
+        bottom_Navigation.setSelectedItemId(R.id.btm_query);
         bottom_Navigation.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()){
+                switch (item.getItemId()) {
                     case R.id.btm_home:
-                        startActivity(new Intent(getApplicationContext(),Home1.class));
+                        startActivity(new Intent(getApplicationContext(), HomePage.class));
                         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                         finish();
                         return true;
 
-                    case R.id.btm_allproduct:
-                        startActivity(new Intent(getApplicationContext(),AllProductsActivity.class));
+                    case R.id.btm_AboutUs:
+                        startActivity(new Intent(getApplicationContext(), AboutUs.class));
+                        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                        finish();
+                        return true;
+                    case R.id.btm_AllProducts:
+                        startActivity(new Intent(getApplicationContext(), Home2.class));
                         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                         finish();
                         return true;
                     case R.id.btm_query:
 
                         return true;
+
                     case R.id.btm_profile:
-                        startActivity(new Intent(getApplicationContext(),UserProfileActivity.class));
-                        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-                        finish();
-                        return true;
-                    case R.id.btm_settings:
-                        startActivity(new Intent(getApplicationContext(),SettingActivity.class));
+                        startActivity(new Intent(getApplicationContext(), UserProfileActivity.class));
                         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                         finish();
                         return true;
 
+//                    case R.id.btm_settings:
+//                        startActivity(new Intent(getApplicationContext(), SettingActivity.class));
+//                        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+//                        finish();
+//                        return true;
+
                 }
-                return false;            }
+                return false;
+            }
         });
 
     }
 
-    private void getData() {
-        dialogEng = new ProgressDialog(FetchProductDataActivity.this);
+//    private void getData() {
+//        dialogEng = new ProgressDialog(FetchProductDataActivity.this);
+//        dialogEng.setTitle("Wait Please... ");
+//        dialogEng.setMessage("Fetching Product Count");
+//        dialogEng.show();
+//
+////api_listertest
+////        String link="https://script.google.com/macros/s/AKfycbyQm1hbnQsezmmt3osWUAFblMsbie5wLuPfQZG_oOfR9qKW88g/exec?action=getUsers";
+////        String link="https://script.google.com/macros/s/AKfycbzZr-qh-rRn-b1im1JPFkiD91RH_FDaWWOH_Ibn6fSgcBLxTm3d_ICt0SbOjaRG0b0q/exec?action=getUsers";
+//        String link="https://script.google.com/macros/s/AKfycbzZr-qh-rRn-b1im1JPFkiD91RH_FDaWWOH_Ibn6fSgcBLxTm3d_ICt0SbOjaRG0b0q/exec?action=getUsers";
+//
+//
+//        StringRequest stringRequest = new StringRequest(Request.Method.GET, link,
+//                new Response.Listener<String>() {
+//                    @Override
+//                    public void onResponse(String response) {
+//                        parseItems(response);
+//                    }
+//                },
+//
+//                new Response.ErrorListener() {
+//                    @Override
+//                    public void onErrorResponse(VolleyError error) {
+//
+//                    }
+//                }
+//        );
+//
+//        int socketTimeOut = 50000;
+//        RetryPolicy policy = new DefaultRetryPolicy(socketTimeOut, 0, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+//
+//        stringRequest.setRetryPolicy(policy);
+//
+//        RequestQueue queue = Volley.newRequestQueue(this);
+//        queue.add(stringRequest);
+//
+//    }
+//    private void parseItems(String jsonResposnce) {
+//        int newScore;
+//        String Score1;
+//        ArrayList<HashMap<String, String>> list = new ArrayList<>();
+//        try {
+//            JSONObject jobj = new JSONObject(jsonResposnce);
+//            JSONArray jarray = jobj.getJSONArray("items");
+//            Class_User class_LatGovtJob=new Class_User();
+//            for (int i = 0; i < jarray.length(); i++) {
+//
+//                JSONObject jo = jarray.getJSONObject(i);
+//
+//                String User = jo.getString("User");
+//                String Name = jo.getString("Name");
+//                String Mobile = jo.getString("Mobile");
+//                String Token = jo.getString("Token");
+//                String Date = jo.getString("Date");
+//
+//
+//                HashMap<String, String> item = new HashMap<>();
+//                item.put("User", User);
+//                item.put("Name", Name);
+//                item.put("Mobile", Mobile);
+//                item.put("Token", Token);
+//                item.put("Date", Date);
+////
+//                class_LatGovtJob.setUserid(User);
+//                class_LatGovtJob.setName(Name);
+//                class_LatGovtJob.setPhoneno(Mobile);
+//                class_LatGovtJob.setToken(Token);
+//                class_LatGovtJob.setDatetime(Date);
+//
+//
+//                list.add(item);
+////
+//
+//                list_latJobs.add(new Class_ListerCounter());
+//
+//            }
+////            list_latJobs.add(class_LatGovtJob);
+//        } catch (JSONException e) {
+//            e.printStackTrace();
+//        }
+//
+//
+//        adapter = new SimpleAdapter(this,list,R.layout.list_lister_rectangular,
+//                new String[]{"User","Name","Mobile","Token","Date"},new int[]{R.id.user,R.id.name,R.id.mobile,R.id.emailid,R.id.datetime});
+//        listview.setAdapter(adapter);
+//
+//
+//
+////        progressBarDel.setVisibility(View.GONE);
+//
+//
+////        if(list_latJobs.size() > 0) {
+//////            laJobs_Adaptor = new Adaptor_User(this, list_latJobs);
+//////            userRegisterQuery_rv.setAdapter(laJobs_Adaptor);
+////                laJobs_Adaptor.notifyDataSetChanged();
+////        } else {
+//////                Snackbar.make(findViewById(R.id.parentLayout), "No Data Found", Snackbar.LENGTH_LONG).show();
+////            Toast.makeText(Home.this, "No Data Found", Toast.LENGTH_SHORT).show();
+////        }
+//        dialogEng.dismiss();
+//    }
+
+    private void getUpdatedData() {
+
+        dialogEng = new ProgressDialog(FetchProductActivity.this);
         dialogEng.setTitle("Wait Please... ");
         dialogEng.setMessage("Fetching Product Count");
         dialogEng.show();
-
-//api_listertest
-//        String link="https://script.google.com/macros/s/AKfycbyQm1hbnQsezmmt3osWUAFblMsbie5wLuPfQZG_oOfR9qKW88g/exec?action=getUsers";
-//        String link="https://script.google.com/macros/s/AKfycbzZr-qh-rRn-b1im1JPFkiD91RH_FDaWWOH_Ibn6fSgcBLxTm3d_ICt0SbOjaRG0b0q/exec?action=getUsers";
-        String link="https://script.google.com/macros/s/AKfycbzZr-qh-rRn-b1im1JPFkiD91RH_FDaWWOH_Ibn6fSgcBLxTm3d_ICt0SbOjaRG0b0q/exec?action=getUsers";
-
-
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, link,
+        String URL_Products = URLFetchData + "?action=get";
+        Class_User class_LatGovtJob=new Class_User();
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, URL_Products,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        parseItems(response);
+                        try {
+                            //converting the string to json array object
+
+                            JSONObject object = new JSONObject(response);
+                            JSONArray array = object.getJSONArray("items");
+
+//                            JSONArray array = new JSONArray(response);
+                            list_FetchData = new ArrayList<>();
+                            //traversing through all the object
+                            for (int i = 0; i < array.length(); i++) {
+
+                                //getting product object from json array
+                                JSONObject product = array.getJSONObject(i);
+//                                String sno = product.getString("sno");
+//                                String productcode = product.getString("productcode");
+//                                String category = product.getString("category");
+//                                String subcategory = product.getString("subcategory");
+//                                String series = product.getString("series");
+//                                String model = product.getString("model");
+//                                String url = product.getString("url");
+//                                String hotselling = product.getString("hotselling");
+//                                String upcoming = product.getString("upcoming");
+//                                String offer = product.getString("offer");
+
+                                String model_name = product.getString("Model Name");
+                                String color = product.getString("COLOR");
+                                String brand = product.getString("BRAND");
+                                String current_stock;
+                                String imageLink = product.getString("ImageLink");
+                                String Date = product.getString("Date");
+
+                                SessionManagement sessionManagement = new SessionManagement(FetchProductActivity.this);
+                                int userID = sessionManagement.getSession();
+                                Toast.makeText(FetchProductActivity.this, "c"+userID, Toast.LENGTH_SHORT).show();
+                                if (userID==(-1)) {
+
+                                    current_stock="Login";
+                                    //user id logged in and so move to mainActivity
+//                                    moveToMainActivity();
+
+                                }else{
+                                    current_stock = product.getString("CURRENT STOCK");
+                                }
+
+
+                                    list_FetchData.add(new Class_ListerCounter(model_name, color, brand, current_stock, imageLink,Date));
+
+//                                }
+//                                list_UpcomingProducts.add(new DataModel1(sno,productcode,series,model,url,hotselling,upcoming,offer));
+//                                }
+
+
+                            }
+
+
+                            //creating adapter object and setting it to recyclerview
+//                            progressBarMum.setVisibility(View.GONE);
+//                            myAdaptor = new myAdaptor(getApplicationContext(), productList);
+
+                            adaptor_fetchdata = new Adaptor_FetchData(getApplicationContext(), list_FetchData);
+                            rv_FetchProduct.setAdapter(adaptor_fetchdata);
+                            dialogEng.dismiss();
+//
+//                            myAdaptor = new MyAdaptor(getApplicationContext(), productList);
+//                            recyclerView.setAdapter(productsAdapter);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            dialogEng.dismiss();
+                            Toast.makeText(FetchProductActivity.this, "Error" + e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
                     }
                 },
-
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(FetchProductActivity.this, "Error" + error.getMessage(), Toast.LENGTH_SHORT).show();
+
 
                     }
-                }
-        );
+                });
 
-        int socketTimeOut = 50000;
-        RetryPolicy policy = new DefaultRetryPolicy(socketTimeOut, 0, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
-
-        stringRequest.setRetryPolicy(policy);
-
-        RequestQueue queue = Volley.newRequestQueue(this);
-        queue.add(stringRequest);
-
+        Volley.newRequestQueue(getApplicationContext()).add(stringRequest);
     }
-    private void parseItems(String jsonResposnce) {
-        int newScore;
-        String Score1;
-        ArrayList<HashMap<String, String>> list = new ArrayList<>();
-        try {
-            JSONObject jobj = new JSONObject(jsonResposnce);
-            JSONArray jarray = jobj.getJSONArray("items");
-            Class_User class_LatGovtJob=new Class_User();
-            for (int i = 0; i < jarray.length(); i++) {
-
-                JSONObject jo = jarray.getJSONObject(i);
-
-                String User = jo.getString("User");
-                String Name = jo.getString("Name");
-                String Mobile = jo.getString("Mobile");
-                String Token = jo.getString("Token");
-                String Date = jo.getString("Date");
-
-
-                HashMap<String, String> item = new HashMap<>();
-                item.put("User", User);
-                item.put("Name", Name);
-                item.put("Mobile", Mobile);
-                item.put("Token", Token);
-                item.put("Date", Date);
-//
-                class_LatGovtJob.setUserid(User);
-                class_LatGovtJob.setName(Name);
-                class_LatGovtJob.setPhoneno(Mobile);
-                class_LatGovtJob.setToken(Token);
-                class_LatGovtJob.setDatetime(Date);
-
-
-                list.add(item);
-//
-
-                list_latJobs.add(class_LatGovtJob);
-
-            }
-//            list_latJobs.add(class_LatGovtJob);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-
-        adapter = new SimpleAdapter(this,list,R.layout.list_lister_rectangular,
-                new String[]{"User","Name","Mobile","Token","Date"},new int[]{R.id.user,R.id.name,R.id.mobile,R.id.emailid,R.id.datetime});
-        listview.setAdapter(adapter);
-
-//        progressBarDel.setVisibility(View.GONE);
-
-
-//        if(list_latJobs.size() > 0) {
-////            laJobs_Adaptor = new Adaptor_User(this, list_latJobs);
-////            userRegisterQuery_rv.setAdapter(laJobs_Adaptor);
-//                laJobs_Adaptor.notifyDataSetChanged();
-//        } else {
-////                Snackbar.make(findViewById(R.id.parentLayout), "No Data Found", Snackbar.LENGTH_LONG).show();
-//            Toast.makeText(Home.this, "No Data Found", Toast.LENGTH_SHORT).show();
-//        }
-        dialogEng.dismiss();
-    }
-
     public void search(String newText) {
-        ArrayList<Class_User> listSearchQues=new ArrayList<>();
-        for (Class_User classUserSearch: listSearchQues){
-            if (classUserSearch.getUserid().toLowerCase().contains(newText.toLowerCase())){
-                listSearchQues.add(classUserSearch);
+        ArrayList<Class_ListerCounter> list_SearchQuery=new ArrayList<>();
+        for (Class_ListerCounter class_FetchData: list_FetchData){
+            if (class_FetchData.getModel_Name().toLowerCase().contains(newText.toLowerCase())){
+                list_SearchQuery.add(class_FetchData);
             }
         }
-        Adaptor_User adapSearchJob= new Adaptor_User(this,listSearchQues);
-        userRegisterQuery_rv.setAdapter(adapSearchJob);
+
+        adaptor_fetchdata.filterlist(list_SearchQuery);
+
+//        Adaptor_User adapSearchJob= new Adaptor_User(this,list_SearchQuery);
+//        userRegisterQuery_rv.setAdapter(adapSearchJob);
     }
     public void VerifyDialogET() {
 
-        Toast.makeText(FetchProductDataActivity.this, "Touch Successfully", Toast.LENGTH_LONG).show();
+        Toast.makeText(FetchProductActivity.this, "Touch Successfully", Toast.LENGTH_LONG).show();
     }
 
 //    private void getData1() {
@@ -600,5 +706,22 @@ public class FetchProductDataActivity extends AppCompatActivity {
 //        }
 //        dialogEng.dismiss();
 //    }
+
+    private void checkSession() {
+        //check if user is logged in
+        //if user is logged in --> move to mainActivity
+        SessionManagement sessionManagement = new SessionManagement(FetchProductActivity.this);
+        int userID = sessionManagement.getSession();
+        if (userID==(-1)) {
+            //user id logged in and so move to mainActivity
+            moveToMainActivity();
+        }
+    }
+    private void moveToMainActivity() {
+        Intent intent = new Intent(FetchProductActivity.this, Home2.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+        finish();
+    }
 
 }

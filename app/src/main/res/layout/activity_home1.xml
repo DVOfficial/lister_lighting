@@ -51,7 +51,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@color/bluegrey"
+                android:background="#EDE7F6"
                 android:id="@+id/rv_HotSellingProducts"/>
 
             <TextView
@@ -70,7 +70,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@color/bluegrey"
+                android:background="#E3F2FD"
                 android:id="@+id/rv_UpcomingProducts"/>
 
             <TextView
@@ -89,7 +89,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@color/bluegrey"
+                android:background="#E8EAF6"
                 android:id="@+id/rv_Offers"/>
 
             <!--    <com.denzcoskun.imageslider.ImageSlider

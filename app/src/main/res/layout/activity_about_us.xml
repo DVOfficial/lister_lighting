@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".AboutUs">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <ImageView
+            android:src="@drawable/llightbackground1"
+            android:layout_width="match_parent"
+            android:layout_height="270dp"/>
+
+        <androidx.cardview.widget.CardView
+            android:layout_marginTop="30dp"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="ABOUT US"
+                android:textSize="20sp"
+                android:padding="15dp"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:background="@drawable/textgradient"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:textSize="18sp"
+            android:textAlignment="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="The company was started in 2015. The Company ventured into the manufacturing and retail segment in 2015, with the complete launch of a range of led lights indoor and outdoor products. Like, Led Panels, Led Conceal Light, Led COB Lights, Led Street Light, Led Flood Light, etc. The lighting segment was started in 2015, with launch of diverse range of LED products ranging from Indoor and Outdoor segment. By 2019, the company established good footprint in eastern, western and northern market of India, by introducing quality and innovative lighting products at the aspirational price segments." />
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_marginTop="30dp"
+            android:src="@drawable/aboutusimg1"/>
+
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:layout_margin="20dp"
+            android:background="@drawable/cardgradient"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_gravity="center"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:src="@drawable/baseline_area_24"/>
+
+            <TextView
+                android:text="Total Operational area of 100000 square feet."
+                android:textSize="18sp"
+                android:textColor="#00008B"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:layout_margin="20dp"
+            android:background="@drawable/cardgradient"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+
+            <ImageView
+                android:layout_gravity="center"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:src="@drawable/baseline_manufacturing_24"/>
+            <TextView
+                android:text="Easy access to the manufacturing unit."
+                android:padding="10dp"
+                android:textColor="#00008B"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:layout_marginTop="30dp"
+                android:textSize="18sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:layout_margin="20dp"
+            android:background="@drawable/cardgradient"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_gravity="center"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:src="@drawable/baseline_auto_stories_24"/>
+            <TextView
+                android:text="The unit is established within the industrial area adhering to guidelines by governing authorities."
+                android:padding="10dp"
+                android:textColor="#00008B"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:layout_marginTop="30dp"
+                android:textSize="18sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+        </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+            android:layout_marginTop="70dp"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="Why Do Bussiness With us?"
+                android:textSize="20sp"
+                android:padding="15dp"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:background="@drawable/textgradient"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+        </androidx.cardview.widget.CardView>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:background="@drawable/gradientbackground"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_marginTop="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:text="Ability To Respond Quikly To Customer Requirments."
+                    android:textSize="16sp"
+                    android:padding="10dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    />
+                <ImageView
+                    android:layout_gravity="end"
+                    android:src="@drawable/baseline_diamond_24"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_marginTop="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:text="Ability To Respond Quikly To Customer Requirments."
+                    android:textSize="16sp"
+                    android:padding="10dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    />
+                <ImageView
+                    android:layout_gravity="end"
+                    android:src="@drawable/baseline_diamond_24"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_marginTop="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:text="In-House Respond And Development Center."
+                    android:textSize="16sp"
+                    android:padding="10dp"
+                    android:textColor="#000"
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    />
+                <ImageView
+                    android:layout_gravity="end"
+                    android:src="@drawable/baseline_diamond_24"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_marginTop="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:text="Ability To Produce Rapid In-House Prototypes."
+                    android:textSize="16sp"
+                    android:padding="10dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    />
+                <ImageView
+                    android:layout_gravity="end"
+                    android:src="@drawable/baseline_diamond_24"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_marginTop="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:text="Ultra -Competitive Pre To Quality Ratio."
+                    android:textSize="16sp"
+                    android:padding="10dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    />
+                <ImageView
+                    android:layout_gravity="end"
+                    android:src="@drawable/baseline_diamond_24"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_marginTop="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:text="The Strong Position At Lighting Market"
+                    android:textSize="16sp"
+                    android:padding="10dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    />
+                <ImageView
+                    android:layout_gravity="end"
+                    android:src="@drawable/baseline_diamond_24"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_marginTop="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:text="A Short Time To Develop New Products."
+                    android:textSize="16sp"
+                    android:padding="10dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    />
+                <ImageView
+                    android:layout_gravity="end"
+                    android:src="@drawable/baseline_diamond_24"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_marginTop="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:text="Quality Product With High Efficiency And Warranty Periods."
+                    android:textSize="16sp"
+                    android:padding="10dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    />
+                <ImageView
+                    android:layout_gravity="end"
+                    android:src="@drawable/baseline_diamond_24"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_marginTop="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:text="In- House Innovation Center."
+                    android:textSize="16sp"
+                    android:padding="10dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    />
+                <ImageView
+                    android:layout_gravity="end"
+                    android:src="@drawable/baseline_diamond_24"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_marginTop="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:text="In- House Innovation Center."
+                    android:textSize="16sp"
+                    android:padding="10dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    />
+                <ImageView
+                    android:layout_gravity="end"
+                    android:src="@drawable/baseline_diamond_24"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_marginTop="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:text="Customer Oriented Company."
+                    android:textSize="16sp"
+                    android:padding="10dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    />
+                <ImageView
+                    android:layout_gravity="end"
+                    android:src="@drawable/baseline_diamond_24"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="LISTER CERTIFICATE"
+                android:textSize="20sp"
+                android:padding="15dp"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:background="@drawable/textgradient"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+        </androidx.cardview.widget.CardView>
+
+        <ImageView
+            android:src="@drawable/certificate800"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"/>
+    </LinearLayout>
+</ScrollView>
+    <include layout="@layout/btm_nav_view"/>
+
+</RelativeLayout>

@@ -2,21 +2,31 @@ package com.listerled.listerlighting;
 
 public class DataModel1 {
 
-    private String sno, productCode,category, series,model,url,hotSelling,upcoming,offer;
+    private String sno, productCode, category, subcategory, series, model, url, hotSelling, upcoming, offer;
 
     public DataModel1() {
+
     }
 
-    public DataModel1(String sno, String productCode, String category, String series, String model, String url, String hotSelling, String upcoming, String offer) {
+    public DataModel1(String sno, String productCode, String category, String subcategory, String series, String model, String url, String hotSelling, String upcoming, String offer) {
         this.sno = sno;
         this.productCode = productCode;
         this.category = category;
+        this.subcategory = subcategory;
         this.series = series;
         this.model = model;
         this.url = url;
         this.hotSelling = hotSelling;
         this.upcoming = upcoming;
         this.offer = offer;
+    }
+
+
+    public DataModel1(String sno, String category, String subcategory, String url) {
+        this.sno = sno;
+        this.category = category;
+        this.subcategory = subcategory;
+        this.url = url;
     }
 
     public String getSno() {
@@ -41,6 +51,14 @@ public class DataModel1 {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    public String getSubcategory() {
+        return subcategory;
+    }
+
+    public void setSubcategory(String subcategory) {
+        this.subcategory = subcategory;
     }
 
     public String getSeries() {

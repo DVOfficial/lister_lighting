@@ -54,7 +54,7 @@ public class Home extends AppCompatActivity {
     BottomNavigationView bottom_Navigation;
 
     //    RecyclerView latJobs_rv;
-    Adaptor_User laJobs_Adaptor,registerAdaptorGovtHi;
+    Adaptor_FetchData laJobs_Adaptor,registerAdaptorGovtHi;
 
     List<Class_ListerDesc> list_latJobs;
     SwipeRefreshLayout swipeRefreshLayout;
@@ -241,7 +241,7 @@ public class Home extends AppCompatActivity {
 //
 
         bottom_Navigation=findViewById(R.id.bottom_Navigation);
-        bottom_Navigation.setSelectedItemId(R.id.btm_settings);
+//        bottom_Navigation.setSelectedItemId(R.id.btm_settings);
         bottom_Navigation.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -250,13 +250,13 @@ public class Home extends AppCompatActivity {
 
                         return true;
 
-                    case R.id.btm_allproduct:
-                        startActivity(new Intent(getApplicationContext(),AllProductsActivity.class));
-                        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-                        finish();
-                        return true;
+//                    case R.id.btm_allproduct:
+//                        startActivity(new Intent(getApplicationContext(),AllProductsActivity.class));
+//                        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+//                        finish();
+//                        return true;
                     case R.id.btm_query:
-                        startActivity(new Intent(getApplicationContext(),FetchProductDataActivity.class));
+                        startActivity(new Intent(getApplicationContext(), FetchProductActivity.class));
                         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                         finish();
                         return true;
@@ -265,11 +265,11 @@ public class Home extends AppCompatActivity {
                         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                         finish();
                         return true;
-                    case R.id.btm_settings:
-                        startActivity(new Intent(getApplicationContext(),SettingActivity.class));
-                        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-                        finish();
-                        return true;
+//                    case R.id.btm_settings:
+//                        startActivity(new Intent(getApplicationContext(),SettingActivity.class));
+//                        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+//                        finish();
+//                        return true;
 
                 }
                 return false;            }
@@ -399,7 +399,7 @@ public class Home extends AppCompatActivity {
 
         adapter = new SimpleAdapter(this,list,R.layout.list_lister_circle,
 //                new String[]{"PRODUCT_CODE","MODEL","SERIES","SHAPE","WATT"},new int[]{R.id.user,R.id.name,R.id.mobile,R.id.emailid,R.id.datetime});
-                new String[]{"PRODUCT_CODE"+" "+"MODEL","SERIES"},new int[]{R.id.user,R.id.mobile});
+                new String[]{"PRODUCT_CODE"+" "+"MODEL","SERIES"},new int[]{R.id.tv_ModelID_Name,R.id.tv_series1});
         featured_listview.setAdapter(adapter);
 
 //        progressBarDel.setVisibility(View.GONE);

@@ -29,6 +29,7 @@ import java.util.List;
 
 public class ProductList extends AppCompatActivity  {
 
+//    private final String URLNew="https://script.google.com/macros/s/AKfycbxfzahcYCoiZ3otW-1r6rPwMiGYZJp-m49CNxEboN-1j_U_JVtsBYf_E0b5DPuSuWXWCA/exec";
     private final String URLNew="https://script.google.com/macros/s/AKfycbxfzahcYCoiZ3otW-1r6rPwMiGYZJp-m49CNxEboN-1j_U_JVtsBYf_E0b5DPuSuWXWCA/exec";
     String productCode,model;
     RecyclerView rv_ProductDesc;
@@ -54,15 +55,9 @@ public class ProductList extends AppCompatActivity  {
         productDesc(productCode);
 //
         tv_title = findViewById(R.id.tv_title);
-//        tv_category = findViewById(R.id.tv_category);
-//        tv_series = findViewById(R.id.tv_series);
-//        tv_model = findViewById(R.id.tv_model);
-//        tv_shape = findViewById(R.id.tv_shape);
         tv_title.setText(title);
 
-        rv_ProductDesc = findViewById(R.id.rv_ProductDesc);
-
-//        LinearLayoutManager llm_HotSelling = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
+        rv_ProductDesc = findViewById(R.id.rv_ProductSubCat);
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
 
@@ -81,13 +76,13 @@ public class ProductList extends AppCompatActivity  {
 
                         return true;
 
-                    case R.id.btm_allproduct:
-                        startActivity(new Intent(getApplicationContext(),AllProductsActivity.class));
-                        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-                        finish();
-                        return true;
+//                    case R.id.btm_allproduct:
+//                        startActivity(new Intent(getApplicationContext(),AllProductsActivity.class));
+//                        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+//                        finish();
+//                        return true;
                     case R.id.btm_query:
-                        startActivity(new Intent(getApplicationContext(),FetchProductDataActivity.class));
+                        startActivity(new Intent(getApplicationContext(), FetchProductActivity.class));
                         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                         finish();
                         return true;
@@ -96,11 +91,11 @@ public class ProductList extends AppCompatActivity  {
                         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                         finish();
                         return true;
-                    case R.id.btm_settings:
-                        startActivity(new Intent(getApplicationContext(),SettingActivity.class));
-                        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-                        finish();
-                        return true;
+//                    case R.id.btm_settings:
+//                        startActivity(new Intent(getApplicationContext(),SettingActivity.class));
+//                        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+//                        finish();
+//                        return true;
 
                 }
                 return false;
@@ -133,15 +128,6 @@ public class ProductList extends AppCompatActivity  {
 
                                 //getting product object from json array
                                 JSONObject product = array.getJSONObject(i);
-//                                String sno= product.getString("sno");
-//                                String productcode= product.getString("productcode");
-//                                String category= product.getString("category");
-//                                String series= product.getString("series");
-//                                String model= product.getString("model");
-//                                String url= product.getString("url");
-//                                String hotselling= product.getString("hotselling");
-//                                String upcoming= product.getString("upcoming");
-//                                String offer= product.getString("offer");
 
                                 String sr_No=product.getString("sr_No");
                                 String product_Code=product.getString("product_Code");
@@ -173,6 +159,11 @@ public class ProductList extends AppCompatActivity  {
                                 String output_voltage=product.getString("output_voltage");
                                 String output_current=product.getString("output_current");
                                 String thd=product.getString("thd");
+                                String combn=product.getString("combn");
+                                String url1=product.getString("url1");
+                                String url2=product.getString("url2");
+                                String url3=product.getString("url3");
+                                String url4=product.getString("url4");
 
 
 //                                DataModel dataModel=new DataModel(sno,modelname,color,brand,stock);
@@ -213,7 +204,12 @@ public class ProductList extends AppCompatActivity  {
                                             product_specification,
                                             output_voltage,
                                             output_current,
-                                            thd));
+                                            thd,
+                                            combn,
+                                            url1,
+                                            url2,
+                                            url3,
+                                            url4));
 
                                 }
 //                                }

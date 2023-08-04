@@ -32,11 +32,17 @@ public class DataDescModel {
     private String output_voltage;
     private String output_current;
     private String thd;
+    private String combn;
+    private String url1;
+    private String url2;
+    private String url3;
+    private String url4;
+
 
     public DataDescModel() {
     }
 
-    public DataDescModel(String sr_No, String product_Code, String category, String series, String model, String shape, String watt, String power_factor, String withstand_voltage, String surge_protection, String lumen, String ip_rating, String size, String cut_out_size, String housing_type, String colour, String dia, String no_of_led, String lumen_per_led, String led_package, String total_length, String lumen_per_mtr, String smd, String finish_product_size, String finish_product_weight, String remarks, String product_specification, String output_voltage, String output_current, String thd) {
+    public DataDescModel(String sr_No, String product_Code, String category, String series, String model, String shape, String watt, String power_factor, String withstand_voltage, String surge_protection, String lumen, String ip_rating, String size, String cut_out_size, String housing_type, String colour, String dia, String no_of_led, String lumen_per_led, String led_package, String total_length, String lumen_per_mtr, String smd, String finish_product_size, String finish_product_weight, String remarks, String product_specification, String output_voltage, String output_current, String thd, String combn, String url1, String url2, String url3, String url4) {
         this.sr_No = sr_No;
         this.product_Code = product_Code;
         this.category = category;
@@ -67,6 +73,11 @@ public class DataDescModel {
         this.output_voltage = output_voltage;
         this.output_current = output_current;
         this.thd = thd;
+        this.combn = combn;
+        this.url1 = url1;
+        this.url2 = url2;
+        this.url3 = url3;
+        this.url4 = url4;
     }
 
     public String getSr_No() {
@@ -307,5 +318,45 @@ public class DataDescModel {
 
     public void setThd(String thd) {
         this.thd = thd;
+    }
+
+    public String getCombn() {
+        return combn;
+    }
+
+    public void setCombn(String combn) {
+        this.combn = combn;
+    }
+
+    public String getUrl1() {
+        return url1;
+    }
+
+    public void setUrl1(String url1) {
+        this.url1 = url1;
+    }
+
+    public String getUrl2() {
+        return url2;
+    }
+
+    public void setUrl2(String url2) {
+        this.url2 = url2;
+    }
+
+    public String getUrl3() {
+        return url3;
+    }
+
+    public void setUrl3(String url3) {
+        this.url3 = url3;
+    }
+
+    public String getUrl4() {
+        return url4;
+    }
+
+    public void setUrl4(String url4) {
+        this.url4 = url4;
     }
 }

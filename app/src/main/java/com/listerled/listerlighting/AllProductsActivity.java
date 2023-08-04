@@ -47,7 +47,7 @@ public class AllProductsActivity extends AppCompatActivity {
     BottomNavigationView bottom_Navigation;
 
     //    RecyclerView latJobs_rv;
-    Adaptor_User laJobs_Adaptor,registerAdaptorGovtHi;
+    Adaptor_FetchData laJobs_Adaptor,registerAdaptorGovtHi;
 
     List<Class_User> list_latJobs;
     SwipeRefreshLayout swipeRefreshLayout;
@@ -110,7 +110,7 @@ public class AllProductsActivity extends AppCompatActivity {
 
                 @Override
                 public boolean onQueryTextChange(String newText) {
-                    search(newText);
+//                    search(newText);
                     return false;
                 }
             });
@@ -197,7 +197,7 @@ public class AllProductsActivity extends AppCompatActivity {
 
 
         bottom_Navigation=findViewById(R.id.bottom_Navigation);
-        bottom_Navigation.setSelectedItemId(R.id.btm_settings);
+//        bottom_Navigation.setSelectedItemId(R.id.btm_settings);
         bottom_Navigation.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -208,11 +208,11 @@ public class AllProductsActivity extends AppCompatActivity {
                         finish();
                         return true;
 
-                    case R.id.btm_allproduct:
-
-                        return true;
+//                    case R.id.btm_allproduct:
+//
+//                        return true;
                     case R.id.btm_query:
-                        startActivity(new Intent(getApplicationContext(),FetchProductDataActivity.class));
+                        startActivity(new Intent(getApplicationContext(), FetchProductActivity.class));
                         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                         finish();
                         return true;
@@ -221,11 +221,11 @@ public class AllProductsActivity extends AppCompatActivity {
                         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                         finish();
                         return true;
-                    case R.id.btm_settings:
-                        startActivity(new Intent(getApplicationContext(),SettingActivity.class));
-                        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-                        finish();
-                        return true;
+//                    case R.id.btm_settings:
+//                        startActivity(new Intent(getApplicationContext(),SettingActivity.class));
+//                        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+//                        finish();
+//                        return true;
 
                 }
                 return false;            }
@@ -296,11 +296,11 @@ public class AllProductsActivity extends AppCompatActivity {
                 item.put("Token", Token);
                 item.put("Date", Date);
 //
-                class_LatGovtJob.setUserid(User);
-                class_LatGovtJob.setName(Name);
-                class_LatGovtJob.setPhoneno(Mobile);
-                class_LatGovtJob.setToken(Token);
-                class_LatGovtJob.setDatetime(Date);
+                class_LatGovtJob.setParty_name(User);
+                class_LatGovtJob.setCity(Name);
+                class_LatGovtJob.setParty_name_city(Mobile);
+                class_LatGovtJob.setCity(Token);
+                class_LatGovtJob.setState(Date);
 
 
                 list.add(item);
@@ -316,7 +316,7 @@ public class AllProductsActivity extends AppCompatActivity {
 
 
         adapter = new SimpleAdapter(this,list,R.layout.list_lister_rectangular,
-                new String[]{"User","Name","Mobile","Token","Date"},new int[]{R.id.user,R.id.name,R.id.mobile,R.id.emailid,R.id.datetime});
+                new String[]{"User","Name","Mobile","Token","Date"},new int[]{R.id.tv_ModelID_Name,R.id.tv_color,R.id.tv_series1,R.id.tv_CurrentStock,R.id.datetime});
         listview.setAdapter(adapter);
 
 //        progressBarDel.setVisibility(View.GONE);
@@ -333,16 +333,16 @@ public class AllProductsActivity extends AppCompatActivity {
         dialogEng.dismiss();
     }
 
-    public void search(String newText) {
-        ArrayList<Class_User> listSearchQues=new ArrayList<>();
-        for (Class_User classUserSearch: listSearchQues){
-            if (classUserSearch.getUserid().toLowerCase().contains(newText.toLowerCase())){
-                listSearchQues.add(classUserSearch);
-            }
-        }
-        Adaptor_User adapSearchJob= new Adaptor_User(this,listSearchQues);
-        userRegisterQuery_rv.setAdapter(adapSearchJob);
-    }
+//    public void search(String newText) {
+//        ArrayList<Class_User> listSearchQues=new ArrayList<>();
+//        for (Class_User classUserSearch: listSearchQues){
+//            if (classUserSearch.getUserid().toLowerCase().contains(newText.toLowerCase())){
+//                listSearchQues.add(classUserSearch);
+//            }
+//        }
+//        Adaptor_User adapSearchJob= new Adaptor_User(this,listSearchQues);
+//        userRegisterQuery_rv.setAdapter(adapSearchJob);
+//    }
     public void VerifyDialogET() {
 
         Toast.makeText(AllProductsActivity.this, "Touch Successfully", Toast.LENGTH_LONG).show();

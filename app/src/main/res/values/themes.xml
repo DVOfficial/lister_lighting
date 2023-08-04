@@ -3,7 +3,7 @@
     <style name="Theme.ListerLighting" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/lavender</item>
+        <item name="colorPrimary">@color/teal_200</item>
         <item name="colorPrimaryVariant">@color/lavender</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->

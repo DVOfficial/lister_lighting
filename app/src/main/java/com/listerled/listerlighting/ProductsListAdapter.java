@@ -12,6 +12,8 @@ import android.widget.TextView;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.List;
 
 public class ProductsListAdapter extends RecyclerView.Adapter<ProductsListAdapter.ProductViewHolder> {
@@ -89,12 +91,18 @@ public class ProductsListAdapter extends RecyclerView.Adapter<ProductsListAdapte
         String output_voltage=product.getOutput_voltage().trim();
         String output_current=product.getOutput_current().trim();
         String thd=product.getThd().trim();
+        String combn=product.getCombn().trim();
+        String url1=product.getUrl1().trim();
+        String url2=product.getUrl2().trim();
+        String url3=product.getUrl3().trim();
+        String url4=product.getUrl4().trim();
 
 
 //        holder.product_Code.setText(product_Code);
         holder.brand.setText(watt);
 //        holder.category.setText(category);
         holder.model.setText(model);
+        Glide.with(mCtx).load(url1).into(holder.imageview);
 
 
         holder.card.setOnClickListener(new View.OnClickListener() {
@@ -132,7 +140,10 @@ public class ProductsListAdapter extends RecyclerView.Adapter<ProductsListAdapte
                 bundle.putString("lumen_per_led", lumen_per_led);
                 bundle.putString("no_of_led", no_of_led);
                 bundle.putString("dia", dia);
-                bundle.putString("colour", colour);
+                bundle.putString("url1", url1);
+                bundle.putString("url2", url2);
+                bundle.putString("url3", url3);
+                bundle.putString("url4", url4);
 
                 intent.putExtras(bundle);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

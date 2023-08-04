@@ -31,7 +31,7 @@
                 android:scaleType="centerCrop"
                 android:src="@drawable/black_logo"/>
         <TextView
-            android:id="@+id/user"
+            android:id="@+id/tv_ModelID_Name"
             android:layout_margin="8dp"
             android:padding="4dp"
             android:minLines="2"
@@ -42,7 +42,7 @@
             android:layout_height="wrap_content"
             />
         <TextView
-            android:id="@+id/mobile"
+            android:id="@+id/tv_series1"
             style="@style/TextAppearance.AppCompat.Subhead"
             android:fontFamily="sans-serif-medium"
             android:paddingTop="4dp"

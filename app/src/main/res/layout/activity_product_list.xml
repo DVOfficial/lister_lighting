@@ -37,10 +37,17 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="8dp"
-                    android:id="@+id/rv_ProductDesc"/>
+                    android:id="@+id/rv_ProductSubCat"/>
         </LinearLayout>
     </ScrollView>
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="72dp"
+        android:id="@+id/rv_ProductDesc"/>
     <include layout="@layout/btm_nav_view"/>
 
 

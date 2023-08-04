@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FetchProductDataActivity">
+    tools:context=".FetchProductActivity">
 
 
     <LinearLayout
@@ -24,38 +24,38 @@
             android:paddingBottom="8dp"
             android:layout_marginTop="8dp"
             android:textSize="18sp"
-            android:text="Fetch Product List"
+            android:text="Fetch Product Stock Query"
             android:id="@+id/tv_title"/>
     </LinearLayout>
     <androidx.appcompat.widget.SearchView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
-        app:queryHint="Search Job"
+        app:queryHint="Search Product"
         app:iconifiedByDefault="false"
         android:layout_margin="8dp"
         android:layout_below="@id/ll_title"
         android:id="@+id/searchView"/>
-<!--    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:layout_marginTop="150dp"-->
-<!--        android:id="@+id/swipeRV">-->
-<!--        <androidx.recyclerview.widget.RecyclerView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:id="@+id/userQuery_rv"/>-->
-<!--    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>-->
-    <ListView
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="8dp"
         android:layout_below="@id/searchView"
-        android:divider="@android:color/transparent"
-        android:dividerHeight="8dip"
-        android:cacheColorHint="@android:color/transparent"
-        android:drawSelectorOnTop="true"
-        android:id="@+id/listview"/>
+        android:id="@+id/swipeRV">
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/rv_FetchProduct"/>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+<!--    <ListView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_margin="8dp"-->
+<!--        android:layout_below="@id/searchView"-->
+<!--        android:divider="@android:color/transparent"-->
+<!--        android:dividerHeight="8dip"-->
+<!--        android:cacheColorHint="@android:color/transparent"-->
+<!--        android:drawSelectorOnTop="true"-->
+<!--        android:id="@+id/listview"/>-->
     <include layout="@layout/btm_nav_view"/>
 
     <!--    <com.google.android.material.bottomnavigation.BottomNavigationView-->

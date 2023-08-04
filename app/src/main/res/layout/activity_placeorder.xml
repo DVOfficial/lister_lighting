@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PlaceOrder">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:id="@+id/ll_title"
+        android:background="@color/primary"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:textSize="18sp"
+            android:text="Place Order"
+            android:id="@+id/tv_title"/>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="72dp"
+        android:layout_below="@+id/ll_title"
+        >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+
+            android:text="Party Name"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/custom_edittext"
+            android:padding="8dp"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:text="Name"
+            android:id="@+id/tv_PartyName"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:textStyle="bold"
+
+            android:textSize="20sp"
+            android:textColor="@color/black"
+
+            android:text="Address"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/custom_edittext"
+            android:padding="8dp"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:text="Address"
+            android:id="@+id/tv_Address"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:textStyle="bold"
+
+            android:textSize="20sp"
+            android:textColor="@color/black"
+
+            android:text="City"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/custom_edittext"
+            android:padding="8dp"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:text="City"
+            android:id="@+id/tv_City"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="4dp"
+        android:textStyle="bold"
+
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:text="Please Select Product"
+        android:id="@+id/tv_product"/>
+
+    <Spinner
+        android:padding="8dp"
+        android:id="@+id/spinner_ProductID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/custom_edittext"
+        android:layout_marginBottom="20dp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="4dp"
+        android:textStyle="bold"
+
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:text="Please Select Watt"
+        android:id="@+id/tv_watt"/>
+    <Spinner
+        android:id="@+id/spinner_ProductWatt"
+        android:padding="8dp"
+        android:background="@drawable/custom_edittext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp" />
+
+<!--    <TextView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Please Select Series"-->
+<!--        android:id="@+id/tv_series"/>-->
+<!--    <Spinner-->
+<!--        android:id="@+id/spinnerSeries"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginBottom="20dp" />-->
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="4dp"
+        android:textStyle="bold"
+
+        android:textColor="@color/black"
+        android:text="Please Choose Color from below list"
+        android:visibility="gone"
+        android:id="@+id/tvt_color"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+
+        android:textColor="@color/black"
+        android:text="Please Select Any Color"
+        android:visibility="gone"
+        android:id="@+id/tv_color"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:background="@drawable/custom_edittext"
+            android:textColor="@color/black"
+            android:hint="Enter Color"
+            android:id="@+id/et_ColorChooser"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:textStyle="bold"
+
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:text="How many quantity do you want to order?"
+            android:id="@+id/tv_Quantity"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+
+            android:background="@drawable/custom_edittext"
+            android:textColor="@color/black"
+            android:hint="Enter Quantity"
+            android:id="@+id/et_Quantity"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:textStyle="bold"
+
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:text="Remarks (If,Any)"
+            android:id="@+id/tv_Remarks"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:background="@drawable/custom_edittext"
+            android:textColor="@color/black"
+            android:hint="Enter Remarks"
+            android:lines="5"
+            android:id="@+id/et_Remarks"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Submit Order"
+            android:layout_marginStart="80dp"
+            android:layout_marginEnd="80dp"
+            android:layout_marginBottom="16dp"
+            android:id="@+id/btn_submitOrder"/>
+    </LinearLayout>
+    </ScrollView>
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/btn_Login"
+        android:visibility="gone"
+        android:text="Login"
+        android:gravity="center" />
+    <include layout="@layout/btm_nav_view"/>
+
+</RelativeLayout>

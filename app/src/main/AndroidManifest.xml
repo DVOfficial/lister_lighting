@@ -4,6 +4,9 @@
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -14,6 +17,30 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ListerLighting"
         tools:targetApi="31">
+        <activity
+            android:name=".HomePage"
+            android:exported="false" />
+        <activity
+            android:name=".AboutUs"
+            android:exported="false" />
+        <activity
+            android:name=".LaunchScreen"
+            android:exported="false" />
+        <activity
+            android:name=".OrderHistory"
+            android:exported="false" />
+        <activity
+            android:name=".PlaceOrder"
+            android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProductSubList"
+            android:exported="false" />
+        <activity
+            android:name=".Home2"
+            android:exported="false" />
         <activity
             android:name=".Home1"
             android:exported="false" />
@@ -30,7 +57,10 @@
             android:name=".UserProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".FetchProductDataActivity"
+            android:name=".FetchProductActivity"
+            android:exported="false" />
+        <activity
+            android:name=".FetchProductDesc_Activity"
             android:exported="false" />
         <activity
             android:name=".AllProductsActivity"
@@ -39,7 +69,7 @@
             android:name=".SignupActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".Login1Activity"
             android:exported="false" />
         <activity
             android:name=".Home"

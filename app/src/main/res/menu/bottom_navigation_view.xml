@@ -5,9 +5,13 @@
         android:icon="@drawable/btm_baseline_home_24"
         android:id="@+id/btm_home"/>
 
+    <item android:title="About Us"
+        android:icon="@drawable/baseline_workspace_premium_24"
+        android:id="@+id/btm_AboutUs"/>
+
     <item android:title="All Products"
         android:icon="@drawable/btm_baseline_grid_view_24"
-        android:id="@+id/btm_allproduct"/>
+        android:id="@+id/btm_AllProducts"/>
 
     <item android:title="Fetch Query"
         android:icon="@drawable/btm_baseline_query_stats_24"
@@ -17,8 +21,5 @@
         android:icon="@drawable/btm_baseline_account_circle_24"
         android:id="@+id/btm_profile"/>
 
-    <item android:title="Settings"
-        android:icon="@drawable/btm_baseline_settings_suggest_24"
-        android:id="@+id/btm_settings"/>
 
 </menu>

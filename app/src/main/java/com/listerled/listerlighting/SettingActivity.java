@@ -22,7 +22,7 @@ public class SettingActivity extends AppCompatActivity {
 
 
         bottom_Navigation=findViewById(R.id.bottom_Navigation);
-        bottom_Navigation.setSelectedItemId(R.id.btm_settings);
+//        bottom_Navigation.setSelectedItemId(R.id.btm_settings);
         bottom_Navigation.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -33,13 +33,13 @@ public class SettingActivity extends AppCompatActivity {
                         finish();
                         return true;
 
-                    case R.id.btm_allproduct:
-                        startActivity(new Intent(getApplicationContext(),AllProductsActivity.class));
-                        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-                        finish();
-                        return true;
+//                    case R.id.btm_allproduct:
+//                        startActivity(new Intent(getApplicationContext(),AllProductsActivity.class));
+//                        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+//                        finish();
+//                        return true;
                     case R.id.btm_query:
-                        startActivity(new Intent(getApplicationContext(),FetchProductDataActivity.class));
+                        startActivity(new Intent(getApplicationContext(), FetchProductActivity.class));
                         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                         finish();
                         return true;
@@ -48,9 +48,9 @@ public class SettingActivity extends AppCompatActivity {
                         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                         finish();
                         return true;
-                    case R.id.btm_settings:
-
-                        return true;
+//                    case R.id.btm_settings:
+//
+//                        return true;
 
                 }
                 return false;            }
