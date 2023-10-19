@@ -62,7 +62,7 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Produc
 //        holder.sno.setText(sno);
         holder.brand.setText(series);
 //        holder.color.setText(color);
-        holder.model.setText(model);
+        holder.model.setText(productcode+" "+model);
 //        holder.stock.setText(stock);
 //        holder.url.setText(image);
         Glide.with(mCtx).load(url).into(holder.imageview);

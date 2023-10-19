@@ -1,4 +1,305 @@
 <resources>
     <string name="app_name">Lister Lighting</string>
     <string name="smps_drivers"><![CDATA[SMPS & Drivers]]></string>
+
+    <string name="state">Product Id*</string>
+    <string name="district">Watt*</string>
+    <string name="submit">Submit</string>
+    <string name="title_desc">Learning Multiple Spinners (Populating Second Spinner based on the Selection of First Spinner)
+        <br /><br /> Using Names of Indian States in First Spinner.
+        <br /> On selecting a State, Second Spinner is populated with the Names of Districts belonging to the selected State.
+    </string>
+
+    <string-array name="array_indian_states">
+        <item>Select Product</item>
+        <item>AD-101</item>
+        <item>AD-102</item>
+        <item>AD-106</item>
+        <item>AD-107</item>
+        <item>AD-108</item>
+        <item>AD-109</item>
+        <item>AD-110</item>
+        <item>AD-112</item>
+        <item>AD-206</item>
+        <item>AD-207</item>
+        <item>AD-208</item>
+        <item>AD-209</item>
+        <item>AD-211</item>
+        <item>AD-212</item>
+        <item>AD-301</item>
+        <item>AD-302</item>
+        <item>AD-303</item>
+        <item>AD-401</item>
+        <item>AD-402</item>
+        <item>AD-403</item>
+        <item>AD-404</item>
+        <item>AD-501</item>
+        <item>AD-502</item>
+        <item>AD-503</item>
+        <item>AD-505</item>
+        <item>AD-506</item>
+        <item>AD-507</item>
+        <item>AD-525</item>
+        <item>AD-601</item>
+        <item>AD-602</item>
+        <item>AD-603</item>
+        <item>AD-604</item>
+        <item>AD-605</item>
+        <item>AD-606</item>
+        <item>AD-607</item>
+        <item>AD-614</item>
+        <item>AD-617</item>
+        <item>AD-701</item>
+        <item>AD-801</item>
+        <item>AD-802</item>
+        <item>AD-803</item>
+        <item>AD-805</item>
+        <item>AD-901</item>
+        <item>AD-059</item>
+
+    </string-array>
+
+    <string-array name="array_default_watt">
+        <item>Select Watt</item>
+    </string-array>
+
+
+    <string-array name="array_default_districts">
+        <item>Select Watt</item>
+    </string-array>
+
+    <string-array name="array_ad_101_productid">
+        <item>3W</item>
+        <item>8W</item>
+        <item>12W</item>
+        <item>15W</item>
+        <item>18W</item>
+        <item>22W</item>
+    </string-array>
+
+    <string-array name="array_ad_102_productid">
+        <item>8W</item>
+        <item>15W</item>
+        <item>22W</item>
+    </string-array>
+    <string-array name="array_ad_106_productid">
+        <item>8W</item>
+        <item>12W</item>
+        <item>15W</item>
+        <item>22W</item>
+    </string-array>
+    <string-array name="array_ad_107_productid">
+        <item>48W</item>
+    </string-array>
+    <string-array name="array_ad_108_productid">
+        <item>3W</item>
+        <item>6W</item>
+        <item>12W</item>
+    </string-array>
+    <string-array name="array_ad_109_productid">
+        <item>12W</item>
+        <item>20W</item>
+    </string-array>
+    <string-array name="array_ad_110_productid">
+        <item>8W</item>
+        <item>15W</item>
+        <item>22W</item>
+
+    </string-array>
+    <string-array name="array_ad_112_productid">
+        <item>3+3W</item>
+        <item>6+3W</item>
+        <item>12+4W</item>
+    </string-array>
+    <string-array name="array_ad_206_productid">
+        <item>10W</item>
+        <item>20W</item>
+        <item>30W</item>
+        <item>50W</item>
+        <item>100W</item>
+        <item>150W</item>
+        <item>200W</item>
+        <item>300W</item>
+        <item>400W</item>
+        <item>500W</item>
+    </string-array>
+
+    <string-array name="array_ad_207_productid">
+        <item>50W</item>
+        <item>100W</item>
+        <item>200W</item>
+        <item>250W</item>
+    </string-array>
+    <string-array name="array_ad_208_productid">
+        <item>20W</item>
+        <item>30W</item>
+        <item>50W</item>
+        <item>100W</item>
+        <item>150W</item>
+        <item>200W</item>
+        <item>300W</item>
+        <item>400W</item>
+    </string-array>
+    <string-array name="array_ad_209_productid">
+        <item>100W</item>
+        <item>150W</item>
+        <item>200W</item>
+        <item>300W</item>
+    </string-array>
+    <string-array name="array_ad_211_productid">
+        <item>50W</item>
+        <item>100W</item>
+    </string-array>
+    <string-array name="array_ad_212_productid">
+        <item>30W</item>
+        <item>50W</item>
+        <item>100W</item>
+    </string-array>
+    <string-array name="array_ad_301_productid">
+        <item>20W</item>
+        <item>24W</item>
+        <item>30W</item>
+        <item>36W</item>
+        <item>50W</item>
+        <item>100W</item>
+    </string-array>
+    <string-array name="array_ad_302_productid">
+        <item>15W</item>
+        <item>18W</item>
+        <item>24W</item>
+        <item>36W</item>
+        <item>50W</item>
+        <item>72W</item>
+        <item>100W</item>
+    </string-array>
+    <string-array name="array_ad_303_productid">
+        <item>24W</item>
+        <item>36W</item>
+        <item>50W</item>
+        <item>100W</item>
+        <item>150W</item>
+        <item>200W</item>
+    </string-array>
+
+    <string-array name="array_ad_401_productid">
+        <item>1W</item>
+        <item>3W</item>
+    </string-array>
+    <string-array name="array_ad_402_productid">
+        <item>3W</item>
+    </string-array>
+    <string-array name="array_ad_403_productid">
+        <item>5W</item>
+    </string-array>
+    <string-array name="array_ad_404_productid">
+        <item>5W</item>
+    </string-array>
+    <string-array name="array_ad_501_productid">
+        <item>20W-24W</item>
+        <item>30W-36W</item>
+        <item>50W</item>
+    </string-array>
+    <string-array name="array_ad_502_productid">
+        <item>3W-4W</item>
+        <item>6W-8W</item>
+        <item>12W-15W</item>
+        <item>18W-22W</item>
+    </string-array>
+    <string-array name="array_ad_503_productid">
+        <item>60W</item>
+        <item>120W</item>
+        <item>150W</item>
+        <item>200W</item>
+        <item>300W</item>
+        <item>400W</item>
+    </string-array>
+
+    <string-array name="array_ad_505_productid">
+        <item>24W</item>
+        <item>35W</item>
+        <item>60W</item>
+        <item>120W</item>
+        <item>150W</item>
+        <item>200W</item>
+        <item>300W</item>
+        <item>400W</item>
+    </string-array>
+    <string-array name="array_ad_506_productid">
+        <item>20W</item>
+        <item>40W</item>
+        <item>80W</item>
+    </string-array>
+    <string-array name="array_ad_507_productid">
+        <item>8W</item>
+    </string-array>
+    <string-array name="array_ad_525_productid">
+        <item>3W</item>
+    </string-array>
+    <string-array name="array_ad_601_productid">
+        <item>6W</item>
+        <item>12W</item>
+    </string-array>
+    <string-array name="array_ad_602_productid">
+        <item>6W</item>
+        <item>12W</item>
+    </string-array>
+    <string-array name="array_ad_603_productid">
+        <item>8W</item>
+    </string-array>
+    <string-array name="array_ad_604_productid">
+        <item>3W</item>
+    </string-array>
+
+    <string-array name="array_ad_605_productid">
+        <item>8W</item>
+    </string-array>
+    <string-array name="array_ad_606_productid">
+        <item>3W</item>
+    </string-array>
+    <string-array name="array_ad_607_productid">
+        <item>6W</item>
+    </string-array>
+    <string-array name="array_ad_614_productid">
+        <item>3W</item>
+        <item>7W</item>
+        <item>12W</item>
+    </string-array>
+    <string-array name="array_ad_617_productid">
+        <item>8W</item>
+        <item>15W</item>
+    </string-array>
+    <string-array name="array_ad_701_productid">
+        <item>10W</item>
+        <item>20W</item>
+    </string-array>
+    <string-array name="array_ad_801_productid">
+        <item>7W</item>
+        <item>12W</item>
+        <item>18W</item>
+        <item>30W</item>
+    </string-array>
+    <string-array name="array_ad_802_productid">
+        <item>7W</item>
+        <item>12W</item>
+        <item>18W</item>
+    </string-array>
+
+    <string-array name="array_ad_803_productid">
+        <item>7W</item>
+        <item>12W</item>
+        <item>18W</item>
+    </string-array>
+    <string-array name="array_ad_805_productid">
+        <item>10W</item>
+        <item>20W</item>
+    </string-array>
+    <string-array name="array_ad_901_productid">
+        <item>30W</item>
+        <item>50W</item>
+    </string-array>
+    <string-array name="array_ad_059_productid">
+        <item>6W</item>
+        <item>12W</item>
+    </string-array>
+
 </resources>

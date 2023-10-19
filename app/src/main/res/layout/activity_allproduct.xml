@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Home2">
+    tools:context=".AllProducts">
 
     <androidx.appcompat.widget.SearchView
         android:id="@+id/searchView"
@@ -15,8 +15,7 @@
         app:queryHint="Search Product" />
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone"
+        android:layout_height="wrap_content"
         android:layout_below="@id/searchView"
         android:id="@+id/rv_FetchProduct"/>
     <ScrollView
@@ -37,8 +36,8 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
                 app:iss_auto_cycle="true"
-                app:iss_delay="1000"
-                app:iss_period="1000"
+                app:iss_delay="3000"
+                app:iss_period="3000"
                 app:iss_text_align="CENTER" />
 
             <TextView
@@ -109,7 +108,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Categories"
+                android:text="All Products"
                 android:textSize="24sp"
                 android:gravity="center"
                 android:padding="10dp"
@@ -120,61 +119,79 @@
                 android:layout_marginBottom="8dp"
                 android:textColor="#fff"
                 android:textStyle="bold"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Outdoor Products"
-                android:textSize="20sp"
-                android:textAlignment="center"
-                android:layout_marginTop="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="4dp"
-                android:textColor="@color/primary"
-                android:id="@+id/tv_Outdoor_Products"
-                android:textStyle="bold"/>
-            <androidx.recyclerview.widget.RecyclerView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:id="@+id/rv_Outdoor_Products"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Indoor Products"
-                android:textSize="20sp"
-                android:textAlignment="center"
-                android:layout_marginTop="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="4dp"
-                android:textColor="@color/primary"
-                android:id="@+id/tv_Indoor_Products"
-                android:textStyle="bold"/>
-            <androidx.recyclerview.widget.RecyclerView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:id="@+id/rv_Indoor_Products"/>
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Outdoor Products"-->
+<!--                android:textSize="20sp"-->
+<!--                android:textAlignment="center"-->
+<!--                android:layout_marginTop="8dp"-->
+<!--                android:layout_marginStart="8dp"-->
+<!--                android:layout_marginEnd="8dp"-->
+<!--                android:layout_marginBottom="4dp"-->
+<!--                android:textColor="@color/primary"-->
+<!--                android:id="@+id/tv_Outdoor_Products"-->
+<!--                android:textStyle="bold"/>-->
+<!--            <androidx.recyclerview.widget.RecyclerView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:id="@+id/rv_Outdoor_Products"/>-->
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Indoor Products"-->
+<!--                android:textSize="20sp"-->
+<!--                android:textAlignment="center"-->
+<!--                android:layout_marginTop="8dp"-->
+<!--                android:layout_marginStart="8dp"-->
+<!--                android:layout_marginEnd="8dp"-->
+<!--                android:layout_marginBottom="4dp"-->
+<!--                android:textColor="@color/primary"-->
+<!--                android:id="@+id/tv_Indoor_Products"-->
+<!--                android:textStyle="bold"/>-->
+<!--            <androidx.recyclerview.widget.RecyclerView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:id="@+id/rv_Indoor_Products"/>-->
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/smps_drivers"
-                android:textSize="20sp"
-                android:textAlignment="center"
-                android:layout_marginTop="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="4dp"
-                android:textColor="@color/primary"
-                android:id="@+id/tv_SMPSDrivers_Products"
-                android:textStyle="bold"/>
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="@string/smps_drivers"-->
+<!--                android:textSize="20sp"-->
+<!--                android:textAlignment="center"-->
+<!--                android:layout_marginTop="8dp"-->
+<!--                android:layout_marginStart="8dp"-->
+<!--                android:layout_marginEnd="8dp"-->
+<!--                android:layout_marginBottom="4dp"-->
+<!--                android:textColor="@color/primary"-->
+<!--                android:id="@+id/tv_SMPSDrivers_Products"-->
+<!--                android:textStyle="bold"/>-->
+<!--            <androidx.recyclerview.widget.RecyclerView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:id="@+id/rv_SMPSDrivers"/>-->
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="All Products"-->
+<!--                android:textSize="20sp"-->
+<!--                android:textAlignment="center"-->
+<!--                android:layout_marginTop="8dp"-->
+<!--                android:layout_marginStart="8dp"-->
+<!--                android:layout_marginEnd="8dp"-->
+<!--                android:layout_marginBottom="4dp"-->
+<!--                android:textColor="@color/primary"-->
+<!--                android:id="@+id/tv_All_Products"-->
+<!--                android:textStyle="bold"/>-->
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:id="@+id/rv_SMPSDrivers"/>
+                android:id="@+id/rv_AllProducts"/>
 
 
 

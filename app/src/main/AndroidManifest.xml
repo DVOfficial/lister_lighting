@@ -18,7 +18,16 @@
         android:theme="@style/Theme.ListerLighting"
         tools:targetApi="31">
         <activity
-            android:name=".HomePage"
+            android:name=".CartData"
+            android:exported="false" />
+        <activity
+            android:name=".PlaceOrder2"
+            android:exported="false" />
+        <activity
+            android:name=".PlaceOrder1"
+            android:exported="false" />
+        <activity
+            android:name=".HomePage_f"
             android:exported="false" />
         <activity
             android:name=".AboutUs"
@@ -39,7 +48,7 @@
             android:name=".ProductSubList"
             android:exported="false" />
         <activity
-            android:name=".Home2"
+            android:name=".AllProducts"
             android:exported="false" />
         <activity
             android:name=".Home1"

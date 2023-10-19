@@ -2,7 +2,6 @@ package com.listerled.listerlighting;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
@@ -110,7 +109,7 @@ public class FetchProductDesc_Activity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.btm_home:
-                        startActivity(new Intent(getApplicationContext(), HomePage.class));
+                        startActivity(new Intent(getApplicationContext(), HomePage_f.class));
                         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                         finish();
                         return true;
@@ -121,7 +120,7 @@ public class FetchProductDesc_Activity extends AppCompatActivity {
                         finish();
                         return true;
                     case R.id.btm_AllProducts:
-                        startActivity(new Intent(getApplicationContext(), Home2.class));
+                        startActivity(new Intent(getApplicationContext(), AllProducts.class));
                         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                         finish();
 

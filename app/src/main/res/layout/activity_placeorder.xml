@@ -22,7 +22,7 @@
             android:paddingBottom="8dp"
             android:layout_marginTop="8dp"
             android:textSize="18sp"
-            android:text="Place Order"
+            android:text="Place New Order"
             android:id="@+id/tv_title"/>
     </LinearLayout>
 
@@ -46,7 +46,6 @@
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold"
-
             android:text="Party Name"/>
         <TextView
             android:layout_width="match_parent"
@@ -55,6 +54,8 @@
             android:padding="8dp"
             android:textColor="@color/black"
             android:textSize="18sp"
+
+            android:layout_marginBottom="8dp"
             android:text="Name"
             android:id="@+id/tv_PartyName"/>
         <TextView
@@ -65,7 +66,6 @@
 
             android:textSize="20sp"
             android:textColor="@color/black"
-
             android:text="Address"/>
 
         <TextView
@@ -75,6 +75,8 @@
             android:padding="8dp"
             android:textSize="18sp"
             android:textColor="@color/black"
+
+            android:layout_marginBottom="8dp"
             android:text="Address"
             android:id="@+id/tv_Address"/>
         <TextView
@@ -96,6 +98,7 @@
             android:textSize="18sp"
             android:textColor="@color/black"
             android:text="City"
+            android:layout_marginBottom="8dp"
             android:id="@+id/tv_City"/>
     <TextView
         android:layout_width="match_parent"
@@ -103,7 +106,7 @@
         android:padding="4dp"
         android:textStyle="bold"
 
-        android:textSize="18sp"
+        android:textSize="20sp"
         android:textColor="@color/black"
         android:text="Please Select Product"
         android:id="@+id/tv_product"/>
@@ -114,24 +117,27 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/custom_edittext"
-        android:layout_marginBottom="20dp" />
+        android:layout_marginBottom="8dp" />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="4dp"
         android:textStyle="bold"
+        android:visibility="gone"
 
-        android:textSize="18sp"
+        android:textSize="20sp"
         android:textColor="@color/black"
         android:text="Please Select Watt"
-        android:id="@+id/tv_watt"/>
+        android:id="@+id/tvt_watt"/>
     <Spinner
         android:id="@+id/spinner_ProductWatt"
         android:padding="8dp"
+        android:visibility="gone"
+
         android:background="@drawable/custom_edittext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp" />
+        android:layout_marginBottom="8dp" />
 
 <!--    <TextView-->
 <!--        android:layout_width="match_parent"-->
@@ -150,17 +156,20 @@
         android:padding="4dp"
         android:textStyle="bold"
 
+        android:textSize="20sp"
         android:textColor="@color/black"
-        android:text="Please Choose Color from below list"
+        android:text="Please enter Color from below list"
         android:visibility="gone"
         android:id="@+id/tvt_color"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textStyle="bold"
-
+        android:textSize="18sp"
+    android:padding="4dp"
+        android:layout_marginStart="8dp"
         android:textColor="@color/black"
-        android:text="Please Select Any Color"
+        android:text=""
         android:visibility="gone"
         android:id="@+id/tv_color"/>
 
@@ -171,7 +180,29 @@
             android:background="@drawable/custom_edittext"
             android:textColor="@color/black"
             android:hint="Enter Color"
+            android:layout_marginBottom="8dp"
             android:id="@+id/et_ColorChooser"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:padding="4dp"
+            android:layout_marginStart="8dp"
+            android:textColor="@color/black"
+            android:text="Enter Product Type (RD / SQ )"
+            android:id="@+id/tv_ProductType"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:background="@drawable/custom_edittext"
+            android:textColor="@color/black"
+            android:hint="Enter Product Type"
+            android:layout_marginBottom="8dp"
+            android:id="@+id/et_ProductType"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -187,10 +218,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="8dp"
-
             android:background="@drawable/custom_edittext"
             android:textColor="@color/black"
             android:hint="Enter Quantity"
+            android:layout_marginBottom="8dp"
             android:id="@+id/et_Quantity"/>
         <TextView
             android:layout_width="match_parent"
@@ -211,6 +242,7 @@
             android:textColor="@color/black"
             android:hint="Enter Remarks"
             android:lines="5"
+            android:layout_marginBottom="8dp"
             android:id="@+id/et_Remarks"/>
         <Button
             android:layout_width="match_parent"

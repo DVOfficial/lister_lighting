@@ -30,7 +30,8 @@ import java.util.List;
 public class ProductList extends AppCompatActivity  {
 
 //    private final String URLNew="https://script.google.com/macros/s/AKfycbxfzahcYCoiZ3otW-1r6rPwMiGYZJp-m49CNxEboN-1j_U_JVtsBYf_E0b5DPuSuWXWCA/exec";
-    private final String URLNew="https://script.google.com/macros/s/AKfycbxfzahcYCoiZ3otW-1r6rPwMiGYZJp-m49CNxEboN-1j_U_JVtsBYf_E0b5DPuSuWXWCA/exec";
+//    private final String URLNew="https://script.google.com/macros/s/AKfycbxfzahcYCoiZ3otW-1r6rPwMiGYZJp-m49CNxEboN-1j_U_JVtsBYf_E0b5DPuSuWXWCA/exec";
+    private final String URLNew="https://script.google.com/macros/s/AKfycbzQFCs-Kjy0Aq0LdW6_72fL8Q6ys1tMSfbikLTKRPp0iIsK3_r5v3eTEtdq7bO2VsY/exec";
     String productCode,model;
     RecyclerView rv_ProductDesc;
     ProductsListAdapter adaptor_ProductDesc;

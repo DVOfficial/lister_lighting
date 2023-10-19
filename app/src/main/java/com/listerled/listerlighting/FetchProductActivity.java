@@ -12,6 +12,8 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -45,6 +47,7 @@ public class FetchProductActivity extends AppCompatActivity {
     Adaptor_FetchData laJobs_Adaptor,registerAdaptorGovtHi;
 
     List<Class_ListerCounter> list_FetchData;
+    Button btn_NewOrder;
     SwipeRefreshLayout swipeRefreshLayout;
 
     FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
@@ -65,6 +68,8 @@ public class FetchProductActivity extends AppCompatActivity {
 
         rv_FetchProduct =findViewById(R.id.rv_FetchProduct);
         searchView=findViewById(R.id.searchView);
+        btn_NewOrder=findViewById(R.id.btn_NewOrder);
+
 //        listview=findViewById(R.id.listview);
 //
 //        ActivityCompat.requestPermissions(Register_Activity.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
@@ -98,6 +103,7 @@ public class FetchProductActivity extends AppCompatActivity {
         rv_FetchProduct.setAdapter(laJobs_Adaptor);
 
         if (searchView != null) {
+//            rv_FetchProduct.setVisibility(View.VISIBLE);
             searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
                 @Override
                 public boolean onQueryTextSubmit(String query) {
@@ -106,6 +112,7 @@ public class FetchProductActivity extends AppCompatActivity {
 
                 @Override
                 public boolean onQueryTextChange(String newText) {
+
                     search(newText);
                     return false;
                 }
@@ -121,6 +128,14 @@ public class FetchProductActivity extends AppCompatActivity {
                     "Internet Connection Not Available", Toast.LENGTH_SHORT).show();
         }
 
+        btn_NewOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FetchProductActivity.this, PlaceOrder1.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+            }
+        });
 
 //        laJobs_Adaptor.setOnItemClickListener(new Adaptor_User.OnItemClickListener() {
 //            @Override
@@ -201,7 +216,7 @@ public class FetchProductActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.btm_home:
-                        startActivity(new Intent(getApplicationContext(), HomePage.class));
+                        startActivity(new Intent(getApplicationContext(), HomePage_f.class));
                         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                         finish();
                         return true;
@@ -212,7 +227,7 @@ public class FetchProductActivity extends AppCompatActivity {
                         finish();
                         return true;
                     case R.id.btm_AllProducts:
-                        startActivity(new Intent(getApplicationContext(), Home2.class));
+                        startActivity(new Intent(getApplicationContext(), AllProducts.class));
                         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                         finish();
                         return true;
@@ -386,7 +401,7 @@ public class FetchProductActivity extends AppCompatActivity {
 
                                 SessionManagement sessionManagement = new SessionManagement(FetchProductActivity.this);
                                 int userID = sessionManagement.getSession();
-                                Toast.makeText(FetchProductActivity.this, "c"+userID, Toast.LENGTH_SHORT).show();
+//                                Toast.makeText(FetchProductActivity.this, "c"+userID, Toast.LENGTH_SHORT).show();
                                 if (userID==(-1)) {
 
                                     current_stock="Login";
@@ -421,14 +436,14 @@ public class FetchProductActivity extends AppCompatActivity {
                         } catch (JSONException e) {
                             e.printStackTrace();
                             dialogEng.dismiss();
-                            Toast.makeText(FetchProductActivity.this, "Error" + e.getMessage(), Toast.LENGTH_SHORT).show();
+//                            Toast.makeText(FetchProductActivity.this, "Error" + e.getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(FetchProductActivity.this, "Error" + error.getMessage(), Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(FetchProductActivity.this, "Error" + error.getMessage(), Toast.LENGTH_SHORT).show();
 
 
                     }
@@ -451,7 +466,7 @@ public class FetchProductActivity extends AppCompatActivity {
     }
     public void VerifyDialogET() {
 
-        Toast.makeText(FetchProductActivity.this, "Touch Successfully", Toast.LENGTH_LONG).show();
+//        Toast.makeText(FetchProductActivity.this, "Touch Successfully", Toast.LENGTH_LONG).show();
     }
 
 //    private void getData1() {
@@ -718,7 +733,7 @@ public class FetchProductActivity extends AppCompatActivity {
         }
     }
     private void moveToMainActivity() {
-        Intent intent = new Intent(FetchProductActivity.this, Home2.class);
+        Intent intent = new Intent(FetchProductActivity.this, AllProducts.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
         finish();

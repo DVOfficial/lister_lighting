@@ -154,6 +154,7 @@ public class Login1Activity extends AppCompatActivity {
 //
                                                 Intent intent =new Intent(Login1Activity.this,FetchProductActivity.class);
                                                 startActivity(intent);
+
                                                 finish();
                                             }
                                             else {
@@ -194,25 +195,25 @@ public class Login1Activity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        checkSession();
+//        checkSession();
     }
 
-    private void checkSession() {
-        //check if user is logged in
-        //if user is logged in --> move to mainActivity
-        SessionManagement sessionManagement = new SessionManagement(Login1Activity.this);
-        int userID = sessionManagement.getSession();
-        if (userID!=-1) {
-            //user id logged in and so move to mainActivity
-            moveToMainActivity();
-        }
-    }
-    private void moveToMainActivity() {
-        Intent intent = new Intent(Login1Activity.this, HomePage.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(intent);
-        finish();
-    }
+//    private void checkSession() {
+//        //check if user is logged in
+//        //if user is logged in --> move to mainActivity
+//        SessionManagement sessionManagement = new SessionManagement(Login1Activity.this);
+//        int userID = sessionManagement.getSession();
+//        if (userID!=-1) {
+//            //user id logged in and so move to mainActivity
+//            moveToMainActivity();
+//        }
+//    }
+//    private void moveToMainActivity() {
+//        Intent intent = new Intent(Login1Activity.this, HomePage_f.class);
+//        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+//        startActivity(intent);
+//        finish();
+//    }
 
 
 }

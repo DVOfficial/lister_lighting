@@ -5,7 +5,6 @@ import androidx.core.splashscreen.SplashScreen;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 
 public class LaunchScreen extends AppCompatActivity {
 
@@ -18,8 +17,9 @@ public class LaunchScreen extends AppCompatActivity {
         setContentView(R.layout.activity_launch_screen);
 
         splashScreen.setKeepOnScreenCondition(() -> true );
-        Intent intent =new Intent(LaunchScreen.this, Home2.class);
+        Intent intent =new Intent(LaunchScreen.this, AllProducts.class);
         startActivity(intent);
+
 
         finish();
 //
@@ -27,7 +27,7 @@ public class LaunchScreen extends AppCompatActivity {
 //
 //                                      @Override
 //                                      public void run() {
-//                                          Intent intent =new Intent(LaunchScreen.this, Home2.class);
+//                                          Intent intent =new Intent(LaunchScreen.this, AllProducts.class);
 //                                          startActivity(intent);
 //
 //                                          finish();

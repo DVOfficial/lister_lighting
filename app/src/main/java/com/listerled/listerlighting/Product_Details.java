@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -47,6 +48,7 @@ public class Product_Details extends AppCompatActivity {
     LinearLayout llh_pfwvsplovocthd,llh_nollpllpmlp,llh_SCOSFPSFPWHT, llh_IPR_D_TL,llh_W_S,llh_TL_S;
 
     ImageView iv_productImage;
+    Button btn_PlaceOrder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,13 +60,14 @@ public class Product_Details extends AppCompatActivity {
 
 
         bottom_Navigation = findViewById(R.id.bottom_Navigation);
+        btn_PlaceOrder = findViewById(R.id.btn_PlaceOrder);
         bottom_Navigation.setSelectedItemId(R.id.btm_AllProducts);
         bottom_Navigation.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.btm_home:
-                        startActivity(new Intent(getApplicationContext(), HomePage.class));
+                        startActivity(new Intent(getApplicationContext(), HomePage_f.class));
                         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                         finish();
                         return true;
@@ -101,6 +104,14 @@ public class Product_Details extends AppCompatActivity {
         });
 
 
+        btn_PlaceOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), PlaceOrder.class));
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+
+            }
+        });
         sr_No = bundle.getString("sr_No", "");
         product_Code = bundle.getString("product_Code", "");
         category = bundle.getString("category", "");

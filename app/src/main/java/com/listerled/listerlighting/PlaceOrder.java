@@ -32,10 +32,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-
-import retrofit2.http.Url;
 
 public class PlaceOrder extends AppCompatActivity implements AdapterView.OnItemClickListener, AdapterView.OnItemSelectedListener {
 
@@ -46,8 +42,8 @@ public class PlaceOrder extends AppCompatActivity implements AdapterView.OnItemC
     ArrayAdapter<String> countryAdapter;
     ArrayAdapter<String> cityAdapter;
     RequestQueue requestQueue;
-    TextView tv_color,tvt_color,tv_PartyName,tv_Address,tv_City;
-    EditText et_ColorChooser,et_Quantity,et_Remarks;
+    TextView tv_color,tvt_color,tv_PartyName,tv_Address,tv_City,tvt_watt;
+    EditText et_ColorChooser,et_Quantity,et_Remarks,et_ProductType;
     Button btn_submitOrder,btn_Login;
     String userName;
     String userCity;
@@ -67,7 +63,7 @@ public class PlaceOrder extends AppCompatActivity implements AdapterView.OnItemC
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.btm_home:
-                        startActivity(new Intent(getApplicationContext(), HomePage.class));
+                        startActivity(new Intent(getApplicationContext(), HomePage_f.class));
                         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                         finish();
                         return true;
@@ -112,6 +108,7 @@ public class PlaceOrder extends AppCompatActivity implements AdapterView.OnItemC
         tv_PartyName = findViewById(R.id.tv_PartyName);
         tv_City = findViewById(R.id.tv_City);
         tv_Address   = findViewById(R.id.tv_Address);
+        tvt_watt   = findViewById(R.id.tvt_watt);
         et_ColorChooser = findViewById(R.id.et_ColorChooser);
         et_Quantity = findViewById(R.id.et_Quantity);
         et_Remarks = findViewById(R.id.et_Remarks);
@@ -138,8 +135,9 @@ public class PlaceOrder extends AppCompatActivity implements AdapterView.OnItemC
                 String color=et_ColorChooser.getText().toString().trim();
                 String quantity=et_Quantity.getText().toString().trim();
                 String remarks = et_Remarks.getText().toString().trim();
+                String productType = et_ProductType.getText().toString().trim();
 
-                SubmitOrder(color,quantity,itemName,itemWatt,remarks,partyName,partyCity,partyAddress);
+                SubmitOrder(color,quantity,itemName,itemWatt,remarks,partyName,partyCity,partyAddress,productType);
 //                Toast.makeText(PlaceOrder.this,color+quantity+itemName+itemWatt,Toast.LENGTH_SHORT).show();
             }
         });
@@ -186,14 +184,14 @@ public class PlaceOrder extends AppCompatActivity implements AdapterView.OnItemC
         }
     }
 
-    private void SubmitOrder(String color, String quantity, String itemName, String itemWatt, String remarks, String username, String usercity, String useraddress) {
+    private void SubmitOrder(String color, String quantity, String itemName, String itemWatt, String remarks, String username, String usercity, String useraddress, String productType) {
 
 
 //        String url2="https://script.google.com/macros/s/AKfycbyGakc775GFqx1tTEN9XJeHMqNG9AX0LuR8dTUDiZFFyuJ4RbFCg6fB5rHezbqNoAas/exec?" +
 //                "action=addNewOrder&vendorName=1&address=2&productcode_model=3&watt=4&color=5&quantity=6&remarks=7";
         String url2="https://script.google.com/macros/s/AKfycbyGakc775GFqx1tTEN9XJeHMqNG9AX0LuR8dTUDiZFFyuJ4RbFCg6fB5rHezbqNoAas/exec?";
-        url2=url2+"action=addNewOrder&vendorName="+username+"&city"+usercity+"&address="+useraddress+"&productcode_model="+
-                itemName+"&watt="+itemWatt+"&color="+color+"&quantity="+quantity+"&remarks="+remarks;
+        url2=url2+"action=addNewOrder&vendorName="+username+"&city="+usercity+"&address="+useraddress+"&productcode_model="+
+                itemName+"&watt="+itemWatt+"&producttype="+productType+"&color="+color+"&quantity="+quantity+"&remarks="+remarks;
 
 //        Toast.makeText(this, "a"+itemName+itemWatt+color+quantity+remarks+username+usercity, Toast.LENGTH_SHORT).show();
         StringRequest stringRequest = new StringRequest(Request.Method.GET,url2,
@@ -221,9 +219,17 @@ public class PlaceOrder extends AppCompatActivity implements AdapterView.OnItemC
 
         RequestQueue queue = Volley.newRequestQueue(PlaceOrder.this);
         queue.add(stringRequest);
-//        ClearData() ;
+        ClearData() ;
 //        Toast.makeText(this, "Job Submitted Successfully", Toast.LENGTH_SHORT).show();
 //        Toast.makeText(PlaceOrder.this, "Order submitted successfully", Toast.LENGTH_SHORT).show();
+
+    }
+
+    private void ClearData() {
+
+        et_ColorChooser.setText("");
+        et_Quantity.setText("");
+        et_Remarks.setText("");
 
     }
 //    private void SubmitOrder(String color, String quantity, String itemName, String itemWatt, String remarks, String username, String usercity) {
@@ -404,7 +410,7 @@ public class PlaceOrder extends AppCompatActivity implements AdapterView.OnItemC
 //        adaptor_HotSellingProducts.setOnItemClickListener(new ProductsAdapter.OnItemClickListener() {
 //            @Override
 //            public void gotoProductDetails(int position, String title) {
-//                Intent intent = new Intent(Home2.this, ProductDetails.class);
+//                Intent intent = new Intent(AllProducts.this, ProductDetails.class);
 //                Bundle bundle = new Bundle();
 //                bundle.putString("productcode", title);
 //                intent.putExtras(bundle);
@@ -415,13 +421,17 @@ public class PlaceOrder extends AppCompatActivity implements AdapterView.OnItemC
 
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+
         String selectedCountry = adapterView.getSelectedItem().toString();
         Toast.makeText(this, ""+selectedCountry, Toast.LENGTH_SHORT).show();
         if(adapterView.getId() == R.id.spinner_ProductID){
+            spinner_ProductWatt.setVisibility(View.VISIBLE);
+            tvt_watt.setVisibility(View.VISIBLE);
             cityList.clear();
             dialogEng = new ProgressDialog(PlaceOrder.this);
             dialogEng.setTitle("Wait Please... ");
-            dialogEng.setMessage("Loading Product Info");
+            dialogEng.setMessage("Loading Product-Watt");
             dialogEng.show();
             String url = "https://script.google.com/macros/s/AKfycbyJ4KNkLNQVrvuI8M7MUemojs1LvTegFAKuI6oCKRtnmVztbcC7JD2D58f1A2C1fcB_/exec?action=getS1Data&id="+selectedCountry;
 //            String url = "https://script.google.com/macros/s/AKfycbyJ4KNkLNQVrvuI8M7MUemojs1LvTegFAKuI6oCKRtnmVztbcC7JD2D58f1A2C1fcB_/exec?action=getS1Data&id="+selectedCountry;
@@ -456,7 +466,6 @@ public class PlaceOrder extends AppCompatActivity implements AdapterView.OnItemC
                                         tv_color.setText(color);
                                     }
 //                                }
-
                                     dialogEng.dismiss();
                                 }
                             } catch (JSONException e) {
@@ -470,8 +479,6 @@ public class PlaceOrder extends AppCompatActivity implements AdapterView.OnItemC
                         @Override
                         public void onErrorResponse(VolleyError error) {
                             Toast.makeText(PlaceOrder.this, "Error" + error.getMessage(), Toast.LENGTH_SHORT).show();
-
-
                         }
                     });
 

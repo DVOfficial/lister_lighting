@@ -33,7 +33,6 @@
         android:background="@color/white"
         app:queryHint="Search Product"
         app:iconifiedByDefault="false"
-        android:layout_margin="8dp"
         android:layout_below="@id/ll_title"
         android:id="@+id/searchView"/>
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -56,6 +55,19 @@
 <!--        android:cacheColorHint="@android:color/transparent"-->
 <!--        android:drawSelectorOnTop="true"-->
 <!--        android:id="@+id/listview"/>-->
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Place New order"
+        android:id="@+id/btn_NewOrder"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="72dp"
+        android:textSize="22sp"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:textColor="#fff"/>
     <include layout="@layout/btm_nav_view"/>
 
     <!--    <com.google.android.material.bottomnavigation.BottomNavigationView-->

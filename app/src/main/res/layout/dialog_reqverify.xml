@@ -14,7 +14,7 @@
         android:padding="8dp"
         style="@style/TextAppearance.AppCompat.Title"
         android:fontFamily="sans-serif-medium"
-        android:text="Registration Title"
+        android:text="Your Order has been placed successfully"
         android:textColor="@color/secondary" />
 
 <!--    <com.google.android.material.textfield.TextInputLayout-->
@@ -36,44 +36,45 @@
 <!--    </com.google.android.material.textfield.TextInputLayout>-->
 
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:id="@+id/tv_FormName"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:visibility="visible"
-        app:boxCollapsedPaddingTop="4dp"
-        app:hintTextColor="@color/primary"
-        app:boxBackgroundColor="@color/secondary"
-        android:background="@drawable/edittext_rounded_corners">
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/edt_FormName"
-            android:hint="Which form you want to fill"
-            android:textColor="@color/primary"
-            android:background="@color/secondary"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp" />
-    </com.google.android.material.textfield.TextInputLayout>    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-       android:id="@+id/tv_FormRemarks"
-        app:boxCollapsedPaddingTop="4dp"
-        app:hintTextColor="@color/primary"
-    android:hint="As question"
-        app:boxBackgroundColor="@color/secondary"
-        android:background="@drawable/edittext_rounded_corners">
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/edt_FormRemarks"
-            android:textColor="@color/primary"
-            android:background="@color/secondary"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp" />
-    </com.google.android.material.textfield.TextInputLayout>
+<!--    <com.google.android.material.textfield.TextInputLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:id="@+id/tv_FormName"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_margin="8dp"-->
+<!--        android:visibility="visible"-->
+<!--        app:boxCollapsedPaddingTop="4dp"-->
+<!--        app:hintTextColor="@color/primary"-->
+<!--        app:boxBackgroundColor="@color/secondary"-->
+<!--        android:background="@drawable/edittext_rounded_corners">-->
+<!--        <com.google.android.material.textfield.TextInputEditText-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:id="@+id/edt_FormName"-->
+<!--            android:hint="Which form you want to fill"-->
+<!--            android:textColor="@color/primary"-->
+<!--            android:background="@color/secondary"-->
+<!--            android:paddingStart="8dp"-->
+<!--            android:paddingEnd="8dp" />-->
+<!--    </com.google.android.material.textfield.TextInputLayout>  -->
+<!--    <com.google.android.material.textfield.TextInputLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_margin="8dp"-->
+<!--       android:id="@+id/tv_FormRemarks"-->
+<!--        app:boxCollapsedPaddingTop="4dp"-->
+<!--        app:hintTextColor="@color/primary"-->
+<!--    android:hint="As question"-->
+<!--        app:boxBackgroundColor="@color/secondary"-->
+<!--        android:background="@drawable/edittext_rounded_corners">-->
+<!--        <com.google.android.material.textfield.TextInputEditText-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:id="@+id/edt_FormRemarks"-->
+<!--            android:textColor="@color/primary"-->
+<!--            android:background="@color/secondary"-->
+<!--            android:paddingStart="8dp"-->
+<!--            android:paddingEnd="8dp" />-->
+<!--    </com.google.android.material.textfield.TextInputLayout>-->
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -86,10 +87,9 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:layout_margin="8dp"
-        android:textSize="20sp"
         android:fontFamily="sans-serif-medium"
         style="@style/Widget.MaterialComponents.Button.TextButton"
-        android:text="Do it later" />
+        android:text="Move to HomePage" />
     <Button
         android:id="@+id/buttonSubmit"
         android:layout_width="wrap_content"
@@ -97,8 +97,8 @@
         android:layout_margin="8dp"
         android:textColor="@color/primary"
         style="@style/TextAppearance.AppCompat.Title"
-        android:textSize="20sp"
-        android:text="SubmitForm_Btn"
+
+        android:text="Add New Order"
         android:backgroundTint="@color/secondary"
         android:layout_weight="1" />
 

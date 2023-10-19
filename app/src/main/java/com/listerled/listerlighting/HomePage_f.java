@@ -7,6 +7,7 @@ import androidx.core.content.ContextCompat;
 
 import android.Manifest;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
@@ -44,7 +45,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
-public class HomePage extends AppCompatActivity {
+public class HomePage_f extends AppCompatActivity {
     BottomNavigationView bottom_Navigation;
     FusedLocationProviderClient fusedLocationProviderClient;
     private  final  static int REQUEST_CODE=100;
@@ -52,9 +53,9 @@ public class HomePage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home_page);
+        setContentView(R.layout.activity_home_page_f);
 
-        getDeviceInfo();
+
         fusedLocationProviderClient= LocationServices.getFusedLocationProviderClient(this);
 
 
@@ -74,7 +75,7 @@ public class HomePage extends AppCompatActivity {
                         finish();
                         return true;
                     case R.id.btm_AllProducts:
-                        startActivity(new Intent(getApplicationContext(), Home2.class));
+                        startActivity(new Intent(getApplicationContext(), AllProducts.class));
                         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                         finish();
                         return true;
@@ -104,7 +105,7 @@ public class HomePage extends AppCompatActivity {
     }
 
     private void askPermission() {
-        ActivityCompat.requestPermissions(HomePage.this, new String[]
+        ActivityCompat.requestPermissions(HomePage_f.this, new String[]
                 {Manifest.permission.ACCESS_FINE_LOCATION},REQUEST_CODE);
     }
 
@@ -113,7 +114,10 @@ public class HomePage extends AppCompatActivity {
 
         if (requestCode==REQUEST_CODE){
             if (grantResults.length>0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+
                 getLastLocation();
+
+
             }
             else {
                 Toast.makeText(this, "Required Permission", Toast.LENGTH_SHORT).show();
@@ -157,14 +161,14 @@ public class HomePage extends AppCompatActivity {
 //                    @Override
 //                    public void onComplete(@NonNull Task<Void> task) {
 //
-//                        Toast.makeText(Home2.this, "Device Info submitted successfully", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(AllProducts.this, "Device Info submitted successfully", Toast.LENGTH_SHORT).show();
 //
 //
 //                    }
 //                }).addOnFailureListener(new OnFailureListener() {
 //                    @Override
 //                    public void onFailure(@NonNull Exception e) {
-//                        Toast.makeText(Home2.this, "Error: "+e.toString(),Toast.LENGTH_LONG).show();
+//                        Toast.makeText(AllProducts.this, "Error: "+e.toString(),Toast.LENGTH_LONG).show();
 //
 //                    }
 //                });
@@ -192,13 +196,18 @@ public class HomePage extends AppCompatActivity {
 //            @Override
 //            public void onComplete(@NonNull Task<Void> task) {
 //
-//                Toast.makeText(Home2.this, "Job for: "+Job_C_Name+" submitted successfully", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(AllProducts.this, "Job for: "+Job_C_Name+" submitted successfully", Toast.LENGTH_SHORT).show();
 //
 //
 //            }
 //        });
+        SessionManagement sessionManagement = new SessionManagement(HomePage_f.this);
+        int userID = sessionManagement.getSession();
+        String userName = sessionManagement.getSSession();
 
-
+        if (userID==-1){
+            userName="New User";
+        }
         String manufacturer = Build.MANUFACTURER;
         String brand        = Build.BRAND;
         String product      = Build.PRODUCT;
@@ -211,12 +220,19 @@ public class HomePage extends AppCompatActivity {
 //        String url="https://script.google.com/macros/s/AKfycbyrZzg4U5dwsLwLuDqmGovaW6f3OtnuEHHgOCUEejxdIV0JKz0Vi4ZFzx1xkFQMJOrs/exec?action=addDDetails&" +
 //                "manufacturer="+manufacturer+"&brand"+brand+"&product="+product+"&model="+model+"&sdk"+sdk+"&versioncode"+versioncode;
         String url="https://script.google.com/macros/s/AKfycbyrZzg4U5dwsLwLuDqmGovaW6f3OtnuEHHgOCUEejxdIV0JKz0Vi4ZFzx1xkFQMJOrs/exec?" +
-                "action=addDDetails&manufacturer="+manufacturer+"&brand="+brand+"&product="+product+"&model="+model+"&sdk="+sdk+"&versioncode="+versioncode;
+                "action=addDDetails&user="+userName+"&manufacturer="+manufacturer+"&brand="+brand+"&product="+product+"&model="+model+"&sdk="+sdk+"&versioncode="+versioncode;
         StringRequest stringRequest = new StringRequest(Request.Method.GET,
                 url,
 
-                response -> Toast.makeText(HomePage.this, "DeviceID Submitted Successfully1", Toast.LENGTH_SHORT).show(),
-                error -> Toast.makeText(HomePage.this, "DeviceID Error", Toast.LENGTH_SHORT).show()
+                response -> {
+//            Toast.makeText(HomePage_f.this, "DeviceID Submitted Successfully1", Toast.LENGTH_SHORT).show();
+                    SharedPreferences prefs=getSharedPreferences("prefs",MODE_PRIVATE);
+                    SharedPreferences.Editor editor=prefs.edit();
+                    editor.putBoolean("firstDevice",false);
+                    editor.apply();
+                },
+                error ->
+                        Toast.makeText(HomePage_f.this, "DeviceID Error", Toast.LENGTH_SHORT).show()
         ) ;
 //        {
 //            @Override
@@ -241,13 +257,13 @@ public class HomePage extends AppCompatActivity {
         RetryPolicy retryPolicy = new DefaultRetryPolicy(socketTimeOut, 0, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
         stringRequest.setRetryPolicy(retryPolicy);
 
-        RequestQueue queue = Volley.newRequestQueue(HomePage.this);
+        RequestQueue queue = Volley.newRequestQueue(HomePage_f.this);
         queue.add(stringRequest);
 //        ClearData() ;
 //        Toast.makeText(this, "Job Submitted Successfully", Toast.LENGTH_SHORT).show();
-//        Toast.makeText(Home2.this, "DeviceID submitted successfully", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(AllProducts.this, "DeviceID submitted successfully", Toast.LENGTH_SHORT).show();
 
-//                                    Toast.makeText(Home2.this, "Lagitude :" +addresses.get(0).getLatitude()+"\n"+"Longitude :"+addresses.get(0).getLongitude()
+//                                    Toast.makeText(AllProducts.this, "Lagitude :" +addresses.get(0).getLatitude()+"\n"+"Longitude :"+addresses.get(0).getLongitude()
 //                                            +"\n"+"Address :"+addresses.get(0).getAddressLine(0)+"\n"+"City :"+addresses.get(0).getLocality()+"\n"+"Country :"+addresses.get(0).getCountryName(), Toast.LENGTH_SHORT).show();
 
 
@@ -263,7 +279,7 @@ public class HomePage extends AppCompatActivity {
                         @Override
                         public void onSuccess(Location location) {
                             if (location !=null){
-                                Geocoder geocoder=new Geocoder(HomePage.this, Locale.getDefault());
+                                Geocoder geocoder=new Geocoder(HomePage_f.this, Locale.getDefault());
                                 List<Address> addresses= null;
                                 try {
                                     addresses = geocoder.getFromLocation(location.getLatitude(),location.getLongitude(),1);
@@ -296,14 +312,14 @@ public class HomePage extends AppCompatActivity {
                                                 @Override
                                                 public void onComplete(@NonNull Task<Void> task) {
 
-                                                    Toast.makeText(HomePage.this, "Location submitted successfully", Toast.LENGTH_SHORT).show();
+//                                                    Toast.makeText(HomePage_f.this, "Location submitted successfully", Toast.LENGTH_SHORT).show();
 
 
                                                 }
                                             }).addOnFailureListener(new OnFailureListener() {
                                                 @Override
                                                 public void onFailure(@NonNull Exception e) {
-                                                    Toast.makeText(HomePage.this, "Error: "+e.toString(),Toast.LENGTH_LONG).show();
+                                                    Toast.makeText(HomePage_f.this, "Error: "+e.toString(),Toast.LENGTH_LONG).show();
 
                                                 }
                                             });
@@ -331,7 +347,7 @@ public class HomePage extends AppCompatActivity {
 //            @Override
 //            public void onComplete(@NonNull Task<Void> task) {
 //
-//                Toast.makeText(Home2.this, "Job for: "+Job_C_Name+" submitted successfully", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(AllProducts.this, "Job for: "+Job_C_Name+" submitted successfully", Toast.LENGTH_SHORT).show();
 //
 //
 //            }
@@ -348,14 +364,14 @@ public class HomePage extends AppCompatActivity {
                                             new Response.Listener<String>() {
                                                 @Override
                                                 public void onResponse(String response) {
-                                                    Toast.makeText(HomePage.this, "Location Submitted Successfully1", Toast.LENGTH_SHORT).show();
+//                                                    Toast.makeText(HomePage_f.this, "Location Submitted Successfully1", Toast.LENGTH_SHORT).show();
 
                                                 }
                                             },
                                             new Response.ErrorListener() {
                                                 @Override
                                                 public void onErrorResponse(VolleyError error) {
-                                                    Toast.makeText(HomePage.this, "Location Error", Toast.LENGTH_SHORT).show();
+                                                    Toast.makeText(HomePage_f.this, "Location Error", Toast.LENGTH_SHORT).show();
 
                                                 }
                                             }
@@ -381,13 +397,13 @@ public class HomePage extends AppCompatActivity {
                                     RetryPolicy retryPolicy = new DefaultRetryPolicy(socketTimeOut, 0, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
                                     stringRequest.setRetryPolicy(retryPolicy);
 
-                                    RequestQueue queue = Volley.newRequestQueue(HomePage.this);
+                                    RequestQueue queue = Volley.newRequestQueue(HomePage_f.this);
                                     queue.add(stringRequest);
 //        ClearData() ;
 //        Toast.makeText(this, "Job Submitted Successfully", Toast.LENGTH_SHORT).show();
-                                    Toast.makeText(HomePage.this, "Location submitted successfully", Toast.LENGTH_SHORT).show();
+//                                    Toast.makeText(HomePage_f.this, "Location submitted successfully", Toast.LENGTH_SHORT).show();
 
-//                                    Toast.makeText(Home2.this, "Lagitude :" +addresses.get(0).getLatitude()+"\n"+"Longitude :"+addresses.get(0).getLongitude()
+//                                    Toast.makeText(AllProducts.this, "Lagitude :" +addresses.get(0).getLatitude()+"\n"+"Longitude :"+addresses.get(0).getLongitude()
 //                                            +"\n"+"Address :"+addresses.get(0).getAddressLine(0)+"\n"+"City :"+addresses.get(0).getLocality()+"\n"+"Country :"+addresses.get(0).getCountryName(), Toast.LENGTH_SHORT).show();
                                 } catch (IOException e) {
                                     e.printStackTrace();
@@ -417,10 +433,19 @@ public class HomePage extends AppCompatActivity {
                         @Override
                         public void onSuccess(Location location) {
                             if (location !=null){
-                                Geocoder geocoder=new Geocoder(HomePage.this, Locale.getDefault());
+                                Geocoder geocoder=new Geocoder(HomePage_f.this, Locale.getDefault());
                                 List<Address> addresses= null;
                                 try {
                                     addresses = geocoder.getFromLocation(location.getLatitude(),location.getLongitude(),1);
+
+                                    SessionManagement sessionManagement = new SessionManagement(HomePage_f.this);
+                                    int userID = sessionManagement.getSession();
+                                    String userName = sessionManagement.getSSession();
+
+                                    if (userID==-1){
+                                        userName="New User";
+                                    }
+
                                     String latitude=""+addresses.get(0).getLatitude();
                                     String longitude=""+addresses.get(0).getLongitude();
                                     String address=""+addresses.get(0).getAddressLine(0);
@@ -429,6 +454,7 @@ public class HomePage extends AppCompatActivity {
 
                                     final HashMap<String,Object> map= new HashMap<>();
 //        map.put("action","addItem");
+                                    map.put("user", userName);
                                     map.put("latitude", latitude);
 
                                     map.put("longitude", longitude);
@@ -449,12 +475,12 @@ public class HomePage extends AppCompatActivity {
                                             reference.child("location").setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
                                                 @Override
                                                 public void onComplete(@NonNull Task<Void> task) {
-                                                    Toast.makeText(HomePage.this, "Location submitted successfully", Toast.LENGTH_SHORT).show();
+//                                                    Toast.makeText(HomePage_f.this, "Location submitted successfully", Toast.LENGTH_SHORT).show();
                                                 }
                                             }).addOnFailureListener(new OnFailureListener() {
                                                 @Override
                                                 public void onFailure(@NonNull Exception e) {
-                                                    Toast.makeText(HomePage.this, "Error: "+e.toString(),Toast.LENGTH_LONG).show();
+                                                    Toast.makeText(HomePage_f.this, "Error: "+e.toString(),Toast.LENGTH_LONG).show();
 
                                                 }
                                             });
@@ -482,7 +508,7 @@ public class HomePage extends AppCompatActivity {
 //            @Override
 //            public void onComplete(@NonNull Task<Void> task) {
 //
-//                Toast.makeText(Home2.this, "Job for: "+Job_C_Name+" submitted successfully", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(AllProducts.this, "Job for: "+Job_C_Name+" submitted successfully", Toast.LENGTH_SHORT).show();
 //
 //
 //            }
@@ -490,21 +516,24 @@ public class HomePage extends AppCompatActivity {
 
 
 
-                                    String url="https://script.google.com/macros/s/AKfycbyrZzg4U5dwsLwLuDqmGovaW6f3OtnuEHHgOCUEejxdIV0JKz0Vi4ZFzx1xkFQMJOrs/exec?action=addLDetails&" +
-                                            "latitude="+latitude+"&longitude="+longitude+"&address="+address+"&city="+city+"&country="+country;
+                                    String url="https://script.google.com/macros/s/AKfycbyrZzg4U5dwsLwLuDqmGovaW6f3OtnuEHHgOCUEejxdIV0JKz0Vi4ZFzx1xkFQMJOrs/exec?action=addLDetails&user=" +userName+
+                                            "&latitude="+latitude+"&longitude="+longitude+"&address="+address+"&city="+city+"&country="+country;
 
                                     StringRequest stringRequest = new StringRequest(Request.Method.GET,url,
                                             new Response.Listener<String>() {
                                                 @Override
                                                 public void onResponse(String response) {
-                                                    Toast.makeText(HomePage.this, "Location Submitted Successfully1", Toast.LENGTH_SHORT).show();
-
+//                                                    Toast.makeText(HomePage_f.this, "Location Submitted Successfully1", Toast.LENGTH_SHORT).show();
+                                                    SharedPreferences prefs=getSharedPreferences("prefs",MODE_PRIVATE);
+                                                    SharedPreferences.Editor editor=prefs.edit();
+                                                    editor.putBoolean("firstLocation",false);
+                                                    editor.apply();
                                                 }
                                             },
                                             new Response.ErrorListener() {
                                                 @Override
                                                 public void onErrorResponse(VolleyError error) {
-                                                    Toast.makeText(HomePage.this, "Location Error", Toast.LENGTH_SHORT).show();
+                                                    Toast.makeText(HomePage_f.this, "Location Error", Toast.LENGTH_SHORT).show();
 
                                                 }
                                             }
@@ -531,13 +560,13 @@ public class HomePage extends AppCompatActivity {
                                     RetryPolicy retryPolicy = new DefaultRetryPolicy(socketTimeOut, 0, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
                                     stringRequest.setRetryPolicy(retryPolicy);
 
-                                    RequestQueue queue = Volley.newRequestQueue(HomePage.this);
+                                    RequestQueue queue = Volley.newRequestQueue(HomePage_f.this);
                                     queue.add(stringRequest);
 //        ClearData() ;
 //        Toast.makeText(this, "Job Submitted Successfully", Toast.LENGTH_SHORT).show();
-                                    Toast.makeText(HomePage.this, "Location submitted successfully", Toast.LENGTH_SHORT).show();
+//                                    Toast.makeText(HomePage_f.this, "Location submitted successfully", Toast.LENGTH_SHORT).show();
 
-//                                    Toast.makeText(Home2.this, "Lagitude :" +addresses.get(0).getLatitude()+"\n"+"Longitude :"+addresses.get(0).getLongitude()
+//                                    Toast.makeText(AllProducts.this, "Lagitude :" +addresses.get(0).getLatitude()+"\n"+"Longitude :"+addresses.get(0).getLongitude()
 //                                            +"\n"+"Address :"+addresses.get(0).getAddressLine(0)+"\n"+"City :"+addresses.get(0).getLocality()+"\n"+"Country :"+addresses.get(0).getCountryName(), Toast.LENGTH_SHORT).show();
                                 } catch (IOException e) {
                                     e.printStackTrace();
@@ -559,4 +588,20 @@ public class HomePage extends AppCompatActivity {
         }
     }
 
+    @Override
+    protected void onStart() {
+        SharedPreferences prefs=getSharedPreferences("prefs",MODE_PRIVATE);
+        boolean firstLocation=prefs.getBoolean("firstLocation",true);
+        boolean firstDevice=prefs.getBoolean("firstDevice",true);
+
+        if(firstLocation) {
+            getLastLocation();
+
+        }if(firstDevice) {
+
+            getDeviceInfo();
+        }
+
+        super.onStart();
+    }
 }

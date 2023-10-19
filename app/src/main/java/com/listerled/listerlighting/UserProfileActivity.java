@@ -25,12 +25,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
-
 public class UserProfileActivity extends AppCompatActivity {
-    ProgressDialog dialogEng;
+    ProgressDialog dialogUserProfile;
     BottomNavigationView bottom_Navigation;
-    Button btn_Login,btn_Logout,btn_NewOrder;
+    Button btn_Logout,btn_NewOrder;
     TextView tv_PartyName,tv_Address,tv_City,tv_State,tv_OrderHistory;
 
     LinearLayout ll_userProfile;
@@ -40,8 +38,11 @@ public class UserProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_userprofile);
-
-        btn_Login=findViewById(R.id.btn_Login);
+        dialogUserProfile = new ProgressDialog(UserProfileActivity.this);
+        dialogUserProfile.setTitle("Wait Please... ");
+        dialogUserProfile.setMessage("Loading Profile Data");
+        dialogUserProfile.show();
+//        btn_Login=findViewById(R.id.btn_Login);
         btn_NewOrder=findViewById(R.id.btn_NewOrder);
         btn_Logout=findViewById(R.id.btn_Logout);
 
@@ -49,7 +50,7 @@ public class UserProfileActivity extends AppCompatActivity {
         tv_Address=findViewById(R.id.tv_Address);
         tv_City=findViewById(R.id.tv_City);
         tv_State=findViewById(R.id.tv_State);
-        tv_OrderHistory=findViewById(R.id.tv_OrderHistory);
+//        tv_OrderHistory=findViewById(R.id.tv_OrderHistory);
 
         ll_userProfile=findViewById(R.id.ll_userProfile);
 
@@ -60,42 +61,49 @@ public class UserProfileActivity extends AppCompatActivity {
         String userName = sessionManagement.getSSession();
         String userCity = sessionManagement.getSSSession();
         String data=userName+"_"+userCity;
-        Toast.makeText(this, ""+userId, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, ""+userId, Toast.LENGTH_SHORT).show();
 
         if (userId==(-1)) {
-            btn_Login.setVisibility(View.VISIBLE);
+//            btn_Login.setVisibility(View.VISIBLE);
             btn_NewOrder.setVisibility(View.GONE);
             ll_userProfile.setVisibility(View.GONE);
-            tv_OrderHistory.setVisibility(View.GONE);
+//            tv_OrderHistory.setVisibility(View.GONE);
+            startActivity(new Intent(getApplicationContext(), Login1Activity.class));
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+            finish();
+                    Toast.makeText(this, "Please Login", Toast.LENGTH_SHORT).show();
+
             //user id logged in and so move to mainActivity
 
 
         } else {
-            btn_Login.setVisibility(View.GONE);
-            tv_OrderHistory.setVisibility(View.VISIBLE);
+//            btn_Login.setVisibility(View.GONE);
+//            tv_OrderHistory.setVisibility(View.VISIBLE);
             btn_NewOrder.setVisibility(View.VISIBLE);
             ll_userProfile.setVisibility(View.VISIBLE);
             GetUserData(userId);
 
         }
 
-        btn_Login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(UserProfileActivity.this, Login1Activity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
-            }
-        });
+//        btn_Login.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(UserProfileActivity.this, Login1Activity.class);
+//                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+//                startActivity(intent);
+//            }
+//        });
         btn_Logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(UserProfileActivity.this, HomePage.class);
+                Intent intent = new Intent(UserProfileActivity.this, HomePage_f.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
                 sessionManagement.removeSession();
                 sessionManagement.removeSSession();
                 sessionManagement.removeSSSession();
+                        Toast.makeText(UserProfileActivity.this, "Logging out successfully", Toast.LENGTH_SHORT).show();
+
 
                 finish();
 
@@ -104,7 +112,7 @@ public class UserProfileActivity extends AppCompatActivity {
         btn_NewOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(UserProfileActivity.this, PlaceOrder.class);
+                Intent intent = new Intent(UserProfileActivity.this, PlaceOrder1.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
 
@@ -113,16 +121,14 @@ public class UserProfileActivity extends AppCompatActivity {
 
             }
         });
-        tv_OrderHistory.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(UserProfileActivity.this, PlaceOrder.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
-
-
-            }
-        });
+//        tv_OrderHistory.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(UserProfileActivity.this, PlaceOrder.class);
+//                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+//                startActivity(intent);
+//            }
+//        });
 
 
 
@@ -134,7 +140,7 @@ public class UserProfileActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.btm_home:
-                        startActivity(new Intent(getApplicationContext(), HomePage.class));
+                        startActivity(new Intent(getApplicationContext(), HomePage_f.class));
                         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                         finish();
                         return true;
@@ -145,7 +151,7 @@ public class UserProfileActivity extends AppCompatActivity {
                         finish();
                         return true;
                     case R.id.btm_AllProducts:
-                        startActivity(new Intent(getApplicationContext(), Home2.class));
+                        startActivity(new Intent(getApplicationContext(), AllProducts.class));
                         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                         finish();
                         return true;
@@ -173,10 +179,10 @@ public class UserProfileActivity extends AppCompatActivity {
     }
 
     private void GetUserData(int ida) {
-        dialogEng = new ProgressDialog(UserProfileActivity.this);
-        dialogEng.setTitle("Wait Please... ");
-        dialogEng.setMessage("Loading Profile Data");
-        dialogEng.show();
+//        dialogUserProfile = new ProgressDialog(UserProfileActivity.this);
+//        dialogUserProfile.setTitle("Wait Please... ");
+//        dialogUserProfile.setMessage("Loading Profile Data");
+//        dialogUserProfile.show();
 //        Toast.makeText(this, "a"+ida, Toast.LENGTH_SHORT).show();
         String URL_Products = urlNew + "?action=getId&id="+ida;
         StringRequest stringRequest = new StringRequest(Request.Method.GET, URL_Products,
@@ -216,7 +222,7 @@ public class UserProfileActivity extends AppCompatActivity {
 
                             }
 
-                            dialogEng.dismiss();
+//                            dialogUserProfile.dismiss();
                             //creating adapter object and setting it to recyclerview
 //                            progressBarMum.setVisibility(View.GONE);
 //                            myAdaptor = new myAdaptor(getApplicationContext(), productList);
@@ -226,33 +232,69 @@ public class UserProfileActivity extends AppCompatActivity {
 //
 //                            myAdaptor = new MyAdaptor(getApplicationContext(), productList);
 //                            recyclerView.setAdapter(productsAdapter);
+                            dialogUserProfile.dismiss();
                         } catch (JSONException e) {
                             e.printStackTrace();
-                            dialogEng.dismiss();
+//                            dialogUserProfile.dismiss();
                             Toast.makeText(UserProfileActivity.this, "Error" + e.getMessage(), Toast.LENGTH_SHORT).show();
                         }
+
+
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         Toast.makeText(UserProfileActivity.this, "Error" + error.getMessage(), Toast.LENGTH_SHORT).show();
-                        dialogEng.dismiss();
+                        dialogUserProfile.dismiss();
 
                     }
                 });
-
+//        dialogUserProfile.dismiss();
         Volley.newRequestQueue(getApplicationContext()).add(stringRequest);
-
+//        dialogUserProfile.dismiss();
 //        adaptor_HotSellingProducts.setOnItemClickListener(new ProductsAdapter.OnItemClickListener() {
 //            @Override
 //            public void gotoProductDetails(int position, String title) {
-//                Intent intent = new Intent(Home2.this, ProductDetails.class);
+//                Intent intent = new Intent(AllProducts.this, ProductDetails.class);
 //                Bundle bundle = new Bundle();
 //                bundle.putString("productcode", title);
 //                intent.putExtras(bundle);
 //                startActivity(intent);
 //            }
 //        });
+    }
+
+    @Override
+    protected void onStart() {
+
+
+//        Intent intent;
+        SessionManagement sessionManagement = new SessionManagement(this);
+        int userId = sessionManagement.getSession();
+        String userName = sessionManagement.getSSession();
+        String userCity = sessionManagement.getSSSession();
+        String data=userName+"_"+userCity;
+//        Toast.makeText(this, ""+userId, Toast.LENGTH_SHORT).show();
+
+        if (userId==(-1)) {
+//            btn_Login.setVisibility(View.VISIBLE);
+            btn_NewOrder.setVisibility(View.GONE);
+            ll_userProfile.setVisibility(View.GONE);
+//            tv_OrderHistory.setVisibility(View.GONE);
+            startActivity(new Intent(getApplicationContext(), Login1Activity.class));
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+            //user id logged in and so move to mainActivity
+
+
+        } else {
+//            btn_Login.setVisibility(View.GONE);
+//            tv_OrderHistory.setVisibility(View.VISIBLE);
+            btn_NewOrder.setVisibility(View.VISIBLE);
+            ll_userProfile.setVisibility(View.VISIBLE);
+            GetUserData(userId);
+
+        }
+        super.onStart();
     }
 }

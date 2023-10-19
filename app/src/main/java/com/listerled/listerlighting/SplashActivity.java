@@ -42,7 +42,7 @@ public class SplashActivity extends AppCompatActivity {
 
             @Override
             public void run() {
-                Intent intent =new Intent(SplashActivity.this, HomePage.class);
+                Intent intent =new Intent(SplashActivity.this, HomePage_f.class);
                 startActivity(intent);
 
                 finish();
@@ -78,7 +78,7 @@ public class SplashActivity extends AppCompatActivity {
 
     }
     private void moveToMainActivity() {
-        Intent intent = new Intent(SplashActivity.this, Home2.class);
+        Intent intent = new Intent(SplashActivity.this, HomePage_f.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
         finish();
